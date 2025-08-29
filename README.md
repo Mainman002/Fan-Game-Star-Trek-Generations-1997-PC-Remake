@@ -7,6 +7,11 @@ A fan remake with a few modernization tweaks. This project is mostly just me exp
 ## Uses
 * [Godot 4.4.1](https://godotengine.org/download/archive/4.4.1-stable/)
 
+## Clone Project
+```
+git clone https://github.com/Mainman002/Fan-Game-Star-Trek-Generations-1997-PC-Remake.git --depth=1 --recurse-submodules
+```
+
 ## Required Submodules
 * [Models](https://github.com/Mainman002/Star-Trek-Generations-1997-Models)
 * [Blends](https://github.com/Mainman002/Star-Trek-Generations-1997-Blends)
