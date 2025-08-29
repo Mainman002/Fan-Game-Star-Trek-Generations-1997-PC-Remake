@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjawqewljrcig"]
+
+[ext_resource type="PackedScene" uid="uid://dhy6j6cpoaa46" path="res://Scenes/Levels/Ambargosa_Station.tscn" id="1_rnu2x"]
+
+[node name="Scene_Manager" type="Control"]
+process_mode = 3
+physics_interpolation_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="Scenes" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Ambargosa_Station" parent="Scenes" instance=ExtResource("1_rnu2x")]
