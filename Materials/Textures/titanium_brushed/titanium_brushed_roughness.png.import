@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6krpoco71xd"
 path.s3tc="res://.godot/imported/titanium_brushed_roughness.png-5b4870016e569fb7676d9466986fdff7.s3tc.ctex"
+path.etc2="res://.godot/imported/titanium_brushed_roughness.png-5b4870016e569fb7676d9466986fdff7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/titanium_brushed/titanium_brushed_roughness.png"
-dest_files=["res://.godot/imported/titanium_brushed_roughness.png-5b4870016e569fb7676d9466986fdff7.s3tc.ctex"]
+dest_files=["res://.godot/imported/titanium_brushed_roughness.png-5b4870016e569fb7676d9466986fdff7.s3tc.ctex", "res://.godot/imported/titanium_brushed_roughness.png-5b4870016e569fb7676d9466986fdff7.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7r2vqck141ww"
 path.s3tc="res://.godot/imported/EnterpriseD_Emissive.png-18f5173233258798b4c43a1344e4fd6a.s3tc.ctex"
+path.etc2="res://.godot/imported/EnterpriseD_Emissive.png-18f5173233258798b4c43a1344e4fd6a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/Enterprise_D/EnterpriseD_Emissive.png"
-dest_files=["res://.godot/imported/EnterpriseD_Emissive.png-18f5173233258798b4c43a1344e4fd6a.s3tc.ctex"]
+dest_files=["res://.godot/imported/EnterpriseD_Emissive.png-18f5173233258798b4c43a1344e4fd6a.s3tc.ctex", "res://.godot/imported/EnterpriseD_Emissive.png-18f5173233258798b4c43a1344e4fd6a.etc2.ctex"]
 
 [params]
 

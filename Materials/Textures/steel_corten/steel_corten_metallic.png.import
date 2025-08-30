@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uaip25e0rylu"
 path.s3tc="res://.godot/imported/steel_corten_metallic.png-9f56864922e4667de7839d7778061952.s3tc.ctex"
+path.etc2="res://.godot/imported/steel_corten_metallic.png-9f56864922e4667de7839d7778061952.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/steel_corten/steel_corten_metallic.png"
-dest_files=["res://.godot/imported/steel_corten_metallic.png-9f56864922e4667de7839d7778061952.s3tc.ctex"]
+dest_files=["res://.godot/imported/steel_corten_metallic.png-9f56864922e4667de7839d7778061952.s3tc.ctex", "res://.godot/imported/steel_corten_metallic.png-9f56864922e4667de7839d7778061952.etc2.ctex"]
 
 [params]
 

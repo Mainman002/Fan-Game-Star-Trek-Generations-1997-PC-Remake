@@ -12,14 +12,14 @@ func _ready():
 			if displayDamageNumber:
 				child.canDisplayDamageNumber = true
 			shootRangeTargets.append(child)
-		
+
 func _process(_delta : float):
 	inputManagement()
-	
+
 func inputManagement():
 	if Input.is_action_just_pressed(restartShootingRangeAction):
 		restartShootRange()
-		
+
 func restartShootRange():
 	#revive all fallen targets
 	for target in range(0, shootRangeTargets.size()):
@@ -27,11 +27,3 @@ func restartShootRange():
 			shootRangeTargets[target].animManager.play_backwards("fall")
 			shootRangeTargets[target].health = 100
 			shootRangeTargets[target].isDisabled = false
-		
-	
-	
-
-		
-
-		
-	

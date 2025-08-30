@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b331u2k47ln5i"
 path.s3tc="res://.godot/imported/shark_skin_fabric_metallic.png-9943c196f62da12ed60dfd5342636395.s3tc.ctex"
+path.etc2="res://.godot/imported/shark_skin_fabric_metallic.png-9943c196f62da12ed60dfd5342636395.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/shark_skin_fabric/shark_skin_fabric_metallic.png"
-dest_files=["res://.godot/imported/shark_skin_fabric_metallic.png-9943c196f62da12ed60dfd5342636395.s3tc.ctex"]
+dest_files=["res://.godot/imported/shark_skin_fabric_metallic.png-9943c196f62da12ed60dfd5342636395.s3tc.ctex", "res://.godot/imported/shark_skin_fabric_metallic.png-9943c196f62da12ed60dfd5342636395.etc2.ctex"]
 
 [params]
 

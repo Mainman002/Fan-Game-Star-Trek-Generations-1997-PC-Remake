@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvbuw42ti1auj"
 path.s3tc="res://.godot/imported/metal_stripes_corrugated_roughness.png-3d48639d7899671ddc19c03c08a05ad9.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_stripes_corrugated_roughness.png-3d48639d7899671ddc19c03c08a05ad9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/metal_stripes_corrugated/metal_stripes_corrugated_roughness.png"
-dest_files=["res://.godot/imported/metal_stripes_corrugated_roughness.png-3d48639d7899671ddc19c03c08a05ad9.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_stripes_corrugated_roughness.png-3d48639d7899671ddc19c03c08a05ad9.s3tc.ctex", "res://.godot/imported/metal_stripes_corrugated_roughness.png-3d48639d7899671ddc19c03c08a05ad9.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://nx4i0v3hqdcp"
 path.s3tc="res://.godot/imported/metal_bulkhead_dirty_metallic.png-43555c071d966c5477fabe97809510dc.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_bulkhead_dirty_metallic.png-43555c071d966c5477fabe97809510dc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/metal_bulkhead_dirty/metal_bulkhead_dirty_metallic.png"
-dest_files=["res://.godot/imported/metal_bulkhead_dirty_metallic.png-43555c071d966c5477fabe97809510dc.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_bulkhead_dirty_metallic.png-43555c071d966c5477fabe97809510dc.s3tc.ctex", "res://.godot/imported/metal_bulkhead_dirty_metallic.png-43555c071d966c5477fabe97809510dc.etc2.ctex"]
 
 [params]
 

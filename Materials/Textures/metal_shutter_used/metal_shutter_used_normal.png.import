@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://nakbwttwfdk2"
 path.s3tc="res://.godot/imported/metal_shutter_used_normal.png-dcb1efd7090cbc5a8fe4b2b2b7ce4433.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_shutter_used_normal.png-dcb1efd7090cbc5a8fe4b2b2b7ce4433.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/metal_shutter_used/metal_shutter_used_normal.png"
-dest_files=["res://.godot/imported/metal_shutter_used_normal.png-dcb1efd7090cbc5a8fe4b2b2b7ce4433.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_shutter_used_normal.png-dcb1efd7090cbc5a8fe4b2b2b7ce4433.s3tc.ctex", "res://.godot/imported/metal_shutter_used_normal.png-dcb1efd7090cbc5a8fe4b2b2b7ce4433.etc2.ctex"]
 
 [params]
 

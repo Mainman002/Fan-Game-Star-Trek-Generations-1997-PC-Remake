@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brtof62rl3rhr"
 path.s3tc="res://.godot/imported/plastic_ultra_matte_grain_rough_normal.png-76da85652f47499b62c0a77435a63508.s3tc.ctex"
+path.etc2="res://.godot/imported/plastic_ultra_matte_grain_rough_normal.png-76da85652f47499b62c0a77435a63508.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/plastic_ultra_matte_grain_rough/plastic_ultra_matte_grain_rough_normal.png"
-dest_files=["res://.godot/imported/plastic_ultra_matte_grain_rough_normal.png-76da85652f47499b62c0a77435a63508.s3tc.ctex"]
+dest_files=["res://.godot/imported/plastic_ultra_matte_grain_rough_normal.png-76da85652f47499b62c0a77435a63508.s3tc.ctex", "res://.godot/imported/plastic_ultra_matte_grain_rough_normal.png-76da85652f47499b62c0a77435a63508.etc2.ctex"]
 
 [params]
 

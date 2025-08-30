@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://t1m0meqsf6ui"
 path.s3tc="res://.godot/imported/iron_curtain_metallic.png-44a91b1cf759bb0254961aaad26671a2.s3tc.ctex"
+path.etc2="res://.godot/imported/iron_curtain_metallic.png-44a91b1cf759bb0254961aaad26671a2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/iron_curtain/iron_curtain_metallic.png"
-dest_files=["res://.godot/imported/iron_curtain_metallic.png-44a91b1cf759bb0254961aaad26671a2.s3tc.ctex"]
+dest_files=["res://.godot/imported/iron_curtain_metallic.png-44a91b1cf759bb0254961aaad26671a2.s3tc.ctex", "res://.godot/imported/iron_curtain_metallic.png-44a91b1cf759bb0254961aaad26671a2.etc2.ctex"]
 
 [params]
 

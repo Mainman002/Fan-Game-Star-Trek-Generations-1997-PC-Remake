@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh6qx0juskcgt"
 path.s3tc="res://.godot/imported/titanium_brushed_baseColor.png-a456ac7e1a0fcd38664f2b9b53a29973.s3tc.ctex"
+path.etc2="res://.godot/imported/titanium_brushed_baseColor.png-a456ac7e1a0fcd38664f2b9b53a29973.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/titanium_brushed/titanium_brushed_baseColor.png"
-dest_files=["res://.godot/imported/titanium_brushed_baseColor.png-a456ac7e1a0fcd38664f2b9b53a29973.s3tc.ctex"]
+dest_files=["res://.godot/imported/titanium_brushed_baseColor.png-a456ac7e1a0fcd38664f2b9b53a29973.s3tc.ctex", "res://.godot/imported/titanium_brushed_baseColor.png-a456ac7e1a0fcd38664f2b9b53a29973.etc2.ctex"]
 
 [params]
 

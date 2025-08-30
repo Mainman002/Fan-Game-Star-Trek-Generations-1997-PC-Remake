@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -122,4 +123,5 @@ interact={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 global_illumination/gi/use_half_resolution=true

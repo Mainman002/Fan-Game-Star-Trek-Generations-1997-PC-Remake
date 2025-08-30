@@ -59,6 +59,11 @@ func _ready():
 	var center_position = viewport_size / 2
 	Input.warp_mouse(center_position)
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		get_tree().set_input_as_handled()
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		target_rotation_y -= event.relative.x * (XAxisSens / 80.0)

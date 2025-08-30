@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3ljebshagn0n"
 path.s3tc="res://.godot/imported/metal_milled_pattern_baseColor.png-2d8b72bfcc8ef20f44965d54fb54c36b.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_milled_pattern_baseColor.png-2d8b72bfcc8ef20f44965d54fb54c36b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Materials/Textures/metal_milled_pattern/metal_milled_pattern_baseColor.png"
-dest_files=["res://.godot/imported/metal_milled_pattern_baseColor.png-2d8b72bfcc8ef20f44965d54fb54c36b.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_milled_pattern_baseColor.png-2d8b72bfcc8ef20f44965d54fb54c36b.s3tc.ctex", "res://.godot/imported/metal_milled_pattern_baseColor.png-2d8b72bfcc8ef20f44965d54fb54c36b.etc2.ctex"]
 
 [params]
 
