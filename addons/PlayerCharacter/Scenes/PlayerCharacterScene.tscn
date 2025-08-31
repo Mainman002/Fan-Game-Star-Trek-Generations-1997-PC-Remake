@@ -1401,6 +1401,7 @@ outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["PlayerCharacter"]]
+physics_interpolation_mode = 1
 collision_layer = 2
 collision_mask = 97
 floor_block_on_wall = false
@@ -1409,7 +1410,7 @@ floor_snap_length = 0.0
 platform_floor_layers = 4278190081
 script = ExtResource("1_834nb")
 desiredMoveSpeedCurve = SubResource("Curve_b3kaq")
-maxSpeed = 9.0
+maxSpeed = 6.0
 inAirMoveSpeedCurve = SubResource("Curve_8ryj3")
 baseHitboxHeight = 2.0
 baseModelHeight = 1.0
@@ -1420,10 +1421,10 @@ crouchDeccel = 8.0
 continiousCrouch = true
 crouchHitboxHeight = 1.2
 crouchModelHeight = 0.6
-walkSpeed = 5.0
+walkSpeed = 4.0
 walkAccel = 10.0
 walkDeccel = 9.0
-runSpeed = 8.0
+runSpeed = 6.0
 runAccel = 8.0
 runDeccel = 7.0
 continiousRun = true
@@ -1577,7 +1578,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78936e-08, 0.154984, 0.541
 transform = Transform3D(1, 0, -4.54747e-13, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0.065257, 0.568656)
 
 [node name="AssaultRifle" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
-transform = Transform3D(-0.141413, 0.16853, 5.5774e-07, 0.16853, 0.141413, -3.74385e-13, -3.58508e-07, 4.27254e-07, -0.22, 0.194, -0.65, -0.144)
+transform = Transform3D(-0.141413, 0.16853, 5.5774e-07, 0.16853, 0.141413, -3.77888e-13, -3.58508e-07, 4.27254e-07, -0.22, 0.194, -0.65, -0.144)
 script = ExtResource("24_tyw5b")
 model = NodePath(".")
 weaponId = 3
@@ -1729,7 +1730,7 @@ shape = SubResource("CapsuleShape3D_5yjma")
 [node name="CeilingCheck" type="RayCast3D" parent="Raycasts"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.758088, 0)
 exclude_parent = false
-target_position = Vector3(0, 4, 0)
+target_position = Vector3(0, 3, 0)
 collide_with_areas = true
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
@@ -1745,6 +1746,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
@@ -1768,11 +1771,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PlayerCharacterInfos" type="HBoxContainer" parent="HUD"]
 visible = false
-offset_left = 6.0
-offset_top = 9.0
-offset_right = 621.0
-offset_bottom = 175.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/PlayerCharacterInfos"]
 layout_mode = 2
@@ -1871,15 +1877,15 @@ label_settings = SubResource("LabelSettings_y4xnc")
 vertical_alignment = 1
 
 [node name="WeaponsInfos" type="HBoxContainer" parent="HUD"]
-anchors_preset = 2
-anchor_top = 1.0
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -103.0
-offset_right = 552.0
-offset_bottom = 29.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/WeaponsInfos"]
 layout_mode = 2
@@ -1960,17 +1966,16 @@ label_settings = SubResource("LabelSettings_y4xnc")
 vertical_alignment = 1
 
 [node name="Crosshair" type="TextureRect" parent="HUD"]
+custom_minimum_size = Vector2(32, 32)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("28_msp70")
 expand_mode = 1
 

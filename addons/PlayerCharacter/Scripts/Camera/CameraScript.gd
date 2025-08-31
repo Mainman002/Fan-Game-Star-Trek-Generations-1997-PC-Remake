@@ -43,6 +43,14 @@ var mouseFree : bool = false
 var target_rotation_y: float = 0.0
 var target_camera_pitch: float = 0.0
 
+## Controller
+var look_input:Vector2 = Vector2.ZERO
+var move_input_deadzone:float = 0.08
+var look_speed:Vector2 = Vector2( 25, 15 )
+var look_sensitivity = 0.002
+var look_lerp:float = 0.35
+const joysticks:Array = [ "look_up", "look_down", "look_left", "look_right" ]
+
 @export_group("Keybind variables")
 @export var mouseModeAction : String = ""
 
@@ -54,15 +62,17 @@ var target_camera_pitch: float = 0.0
 func _ready():
 	target_rotation_y = rotation.y
 
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #set mouse as captured
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var viewport_size = get_viewport().size
 	var center_position = viewport_size / 2
 	Input.warp_mouse(center_position)
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		get_tree().set_input_as_handled()
+
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -75,11 +85,23 @@ func _unhandled_input(event):
 func _process(delta):
 	smooth_camera_look(delta)
 
+	_controller_look(delta)
+
 	applies(delta)
 
 	cameraBob(delta)
 
 	cameraTilt(delta)
+
+
+func _controller_look( _delta:float ) -> void:
+	look_input.x = Input.get_action_strength("look_up") - Input.get_action_strength("look_down")
+	look_input.y = Input.get_action_strength("look_left") - Input.get_action_strength("look_right")
+
+	if Vector2.ZERO.distance_to(look_input) > move_input_deadzone*sqrt(2.0):
+		look_lerp = 0.32
+		target_rotation_y += look_speed.x * look_input.y * look_sensitivity
+		target_camera_pitch += look_speed.y * look_input.x * look_sensitivity
 
 
 func smooth_camera_look( delta:float ) -> void:

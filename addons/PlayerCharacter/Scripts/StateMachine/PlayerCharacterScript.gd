@@ -86,6 +86,9 @@ var coyoteJumpOn : bool = false
 @onready var floorCheck : RayCast3D = $Raycasts/FloorCheck
 
 func _ready():
+	await get_tree().process_frame
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
 	#set move variables, and value references
 	moveSpeed = walkSpeed
 	moveAccel = walkAccel
@@ -103,15 +106,16 @@ func _ready():
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("start_button"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().quit()
 
 #func _process(_delta: float):
 	#displayProperties()
 
-func _physics_process(_delta : float):
+#func _physics_process(_delta : float):
+func _process(_delta : float):
 	modifyPhysicsProperties()
-
 	move_and_slide()
 
 func displayProperties():

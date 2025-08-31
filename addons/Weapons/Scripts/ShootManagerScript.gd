@@ -146,6 +146,7 @@ func projectileShot(pointOfCollisionProjectile : Vector3):
 	projInstance.timeBeforeVanish = cW.projTimeBeforeVanish
 	projInstance.gravity_scale = cW.projGravityVal
 	projInstance.isExplosive = cW.isProjExplosive
+	projInstance.scale = Vector3(1,1,1)
 
 	get_tree().get_root().add_child(projInstance)
 
