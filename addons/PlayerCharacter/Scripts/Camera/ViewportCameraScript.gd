@@ -1,6 +1,8 @@
 extends Camera3D
 
-@onready var cam : Camera3D = %Camera
+#@export var cam:Camera3D
+
+@onready var cam: Camera3D = $"."
 
 func _process(_delta : float):
 	global_transform = cam.global_transform

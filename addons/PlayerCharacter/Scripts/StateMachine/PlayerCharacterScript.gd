@@ -74,7 +74,7 @@ var coyoteJumpOn : bool = false
 @export var jumpAction : String = ""
 
 @export_group("Camera Variables")
-@export var FOV:int = 75
+@export var FOV:int = 60
 
 #references variables
 @onready var camHolder : Node3D = $CameraHolder

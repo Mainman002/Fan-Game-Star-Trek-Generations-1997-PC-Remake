@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhy6j6cpoaa46"]
+[gd_scene load_steps=12 format=3 uid="uid://dhy6j6cpoaa46"]
 
 [ext_resource type="LightmapGIData" uid="uid://c7km641xfapo0" path="res://Scenes/Levels/Lightmaps/Ambargosa_Station.lmbake" id="1_i7241"]
 [ext_resource type="PackedScene" uid="uid://jqie5wyy40mn" path="res://Models/Complete_Levels/Ambargosa_Station/Ambargosa_Station.glb" id="1_uqjgr"]
-[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/Scenes/PlayerCharacterScene.tscn" id="2_kdgre"]
+[ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="2_lkl5h"]
 [ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="2_tv7er"]
 [ext_resource type="PackedScene" uid="uid://kspjf3as235m" path="res://Models/Level_Props/Turbolifts/Ambargosa_Turbolift.tscn" id="3_t2hu2"]
+[ext_resource type="PackedScene" uid="uid://dqo1ja3hpw00s" path="res://Objects/Players/Player.tscn" id="5_i7241"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t2hu2"]
 panorama = ExtResource("2_tv7er")
@@ -37,6 +38,9 @@ volumetric_fog_sky_affect = 0.013
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdgre"]
 size = Vector3(300, 0.5, 300)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7241"]
+size = Vector3(1, 3.00488, 3.81055)
+
 [node name="Ambargosa_Station" type="Node3D"]
 metadata/_edit_lock_ = true
 
@@ -62,6 +66,7 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
 environment = SubResource("Environment_kdgre")
+script = ExtResource("2_lkl5h")
 
 [node name="Lights" type="Node3D" parent="Lighting"]
 metadata/_edit_lock_ = true
@@ -161,6 +166,11 @@ transform = Transform3D(0.203454, 0, 0.979085, 0, 1, 0, -0.979085, 0, 0.203454, 
 [node name="Ambargosa_Turbolift3" parent="LightmapGI/Meshes/Turbolifts" instance=ExtResource("3_t2hu2")]
 transform = Transform3D(0.122424, 0, -0.992478, 0, 1, 0, 0.992478, 0, 0.122424, 29.4343, 0.2, 8.65652)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("2_kdgre")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.57959, 1.02225, -0.12047)
-FOV = 60
+[node name="Door_SB" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_SB"]
+shape = SubResource("BoxShape3D_i7241")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("5_i7241")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 6, 1, 0)

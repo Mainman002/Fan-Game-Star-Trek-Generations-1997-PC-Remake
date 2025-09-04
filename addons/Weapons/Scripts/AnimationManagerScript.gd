@@ -5,7 +5,7 @@ var cWM : Node3D
 
 @onready var cameraHolder : Node3D = %CameraHolder
 @onready var playChar : CharacterBody3D = $"../../../../.."
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
+@onready var animPlayer : AnimationPlayer
 @onready var weapM : Node3D = %WeaponManager
 
 func getCurrentWeapon(currWeap, currWeapModel):

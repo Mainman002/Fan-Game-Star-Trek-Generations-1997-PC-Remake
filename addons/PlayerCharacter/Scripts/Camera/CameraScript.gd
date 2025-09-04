@@ -3,39 +3,42 @@ extends Node3D
 #class name
 class_name CameraObject
 
+@export_group("Nodes")
+@export var _playChar:Node3D
+
 @export_group("Camera variables")
-@export_range(0.0, 5.0, 0.01) var XAxisSens : float
-@export_range(0.0, 5.0, 0.01) var YAxisSens : float
-@export var maxUpAngleView : float
-@export var maxDownAngleView : float
+@export_range(0.0, 5.0, 0.01) var XAxisSens : float = 0.12
+@export_range(0.0, 5.0, 0.01) var YAxisSens : float = 0.12
+@export var maxUpAngleView : float = -50
+@export var maxDownAngleView : float = 50
 
 @export_group("FOV variables")
-@export var startFOV : float
-@export var runFOV : float
-@export var fovTransitionSpeed : float
+@export var startFOV : float = 50
+@export var runFOV : float = 90
+@export var fovTransitionSpeed : float = 3
 
 @export_group("Movement changes variables")
-@export var baseCamAngle : float
-@export var crouchCamAngle : float
-@export var baseCameraLerpSpeed : float
-@export var crouchCameraLerpSpeed : float
-@export var crouchCameraDepth : float
+@export var baseCamAngle : float = 0
+@export var crouchCamAngle : float = 0
+@export var baseCameraLerpSpeed : float = 8
+@export var crouchCameraLerpSpeed : float = 8
+@export var crouchCameraDepth : float = -0.4
 
 @export_group("Camera bob variables")
 @export var enableBob : bool = true
 var headBobValue : float
-@export var bobFrequency : float
-@export var bobAmplitude : float
+@export var bobFrequency : float = 2.9
+@export var bobAmplitude : float = 0.03
 
 @export_group("Camera tilt variables")
 @export var enableTilt : bool = true
-@export var tiltRotationValue : float
-@export var tiltRotationSpeed : float
-@export var inAirTiltValDivider : float
+@export var tiltRotationValue : float = 0.25
+@export var tiltRotationSpeed : float = 1.5
+@export var inAirTiltValDivider : float = 1.9
 
 @export_group("Input variables")
 var mouseInput : Vector2
-@export var mouseInputSpeed : float
+@export var mouseInputSpeed : float = 10
 var playCharInputDir : Vector2
 
 #Mouse variables
@@ -52,15 +55,16 @@ var look_lerp:float = 0.35
 const joysticks:Array = [ "look_up", "look_down", "look_left", "look_right" ]
 
 @export_group("Keybind variables")
-@export var mouseModeAction : String = ""
+@export var mouseModeAction : String = "mouseMode"
 
 #References variables
 @onready var camera : Camera3D = %Camera
-@onready var playChar : PlayerCharacter = $".."
+@onready var playChar : Node3D = _playChar
 @onready var weaponManager : Node3D = %WeaponManager
 
 func _ready():
-	target_rotation_y = rotation.y
+	#$CameraRecoilHolder/Camera.rotation.y = 90
+	#target_rotation_y = rotation.y
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var viewport_size = get_viewport().size
@@ -83,9 +87,9 @@ func _unhandled_input(event):
 
 
 func _process(delta):
-	smooth_camera_look(delta)
-
-	_controller_look(delta)
+	#smooth_camera_look(delta)
+#
+	#_controller_look(delta)
 
 	applies(delta)
 
@@ -94,40 +98,40 @@ func _process(delta):
 	cameraTilt(delta)
 
 
-func _controller_look( _delta:float ) -> void:
-	look_input.x = Input.get_action_strength("look_up") - Input.get_action_strength("look_down")
-	look_input.y = Input.get_action_strength("look_left") - Input.get_action_strength("look_right")
+#func _controller_look( _delta:float ) -> void:
+	#look_input.x = Input.get_action_strength("look_up") - Input.get_action_strength("look_down")
+	#look_input.y = Input.get_action_strength("look_left") - Input.get_action_strength("look_right")
+#
+	#if Vector2.ZERO.distance_to(look_input) > move_input_deadzone*sqrt(2.0):
+		#look_lerp = 0.32
+		#target_rotation_y += look_speed.x * look_input.y * look_sensitivity
+		#target_camera_pitch += look_speed.y * look_input.x * look_sensitivity
 
-	if Vector2.ZERO.distance_to(look_input) > move_input_deadzone*sqrt(2.0):
-		look_lerp = 0.32
-		target_rotation_y += look_speed.x * look_input.y * look_sensitivity
-		target_camera_pitch += look_speed.y * look_input.x * look_sensitivity
 
-
-func smooth_camera_look( delta:float ) -> void:
-	# Smoothly rotate body (yaw)
-	var current_yaw = rotation.y
-	current_yaw = lerp_angle(current_yaw, target_rotation_y, delta * 15.0)
-	rotation.y = current_yaw
-
-	# Smoothly rotate camera (pitch)
-	var current_pitch = camera.rotation.x
-	current_pitch = lerp_angle(current_pitch, target_camera_pitch, delta * 15.0)
-	camera.rotation.x = current_pitch
+#func smooth_camera_look( delta:float ) -> void:
+	## Smoothly rotate body (yaw)
+	#var current_yaw = rotation.y
+	#current_yaw = lerp_angle(current_yaw, target_rotation_y, delta * 15.0)
+	#rotation.y = current_yaw
+#
+	## Smoothly rotate camera (pitch)
+	#var current_pitch = camera.rotation.x
+	#current_pitch = lerp_angle(current_pitch, target_camera_pitch, delta * 15.0)
+	#camera.rotation.x = current_pitch
 
 
 func applies(delta : float):
 	#manage the differents camera modifications relative to a specific state, except for the FOV
-	if playChar.stateMachine.currStateName == "Crouch":
+	if playChar.stateMachine and playChar.stateMachine.currStateName == "Crouch":
 		position.y = lerp(position.y, 0.715 + crouchCameraDepth, crouchCameraLerpSpeed * delta)
 		rotation.z = lerp(rotation.z, deg_to_rad(crouchCamAngle) * playChar.inputDirection.x if playChar.inputDirection.x != 0.0 else deg_to_rad(crouchCamAngle), crouchCameraLerpSpeed * delta)
-	elif playChar.stateMachine.currStateName == "Run":
+	elif playChar.stateMachine and playChar.stateMachine.currStateName == "Run":
 		camera.fov = lerp(camera.fov, runFOV, fovTransitionSpeed * delta)
 		rotation.z = lerp(rotation.z, deg_to_rad(baseCamAngle), baseCameraLerpSpeed * delta)
-	elif playChar.stateMachine.currStateName == "Jump":
+	elif playChar.stateMachine and playChar.stateMachine.currStateName == "Jump":
 		# Maintain the current FOV when jumping
 		camera.fov = lerp(camera.fov, camera.fov, fovTransitionSpeed * delta)
-	elif playChar.stateMachine.currStateName == "Inair":
+	elif playChar.stateMachine and playChar.stateMachine.currStateName == "Inair":
 		# Maintain the current FOV when in air
 		camera.fov = lerp(camera.fov, camera.fov, fovTransitionSpeed * delta)
 	else:
