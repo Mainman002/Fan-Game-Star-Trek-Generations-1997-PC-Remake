@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://dqo1ja3hpw00s"]
+[gd_scene load_steps=84 format=4 uid="uid://dqo1ja3hpw00s"]
 
 [ext_resource type="Script" uid="uid://b1a06ytr2piwx" path="res://Objects/Players/Scripts/Player.gd" id="1_u8pww"]
 [ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="2_ayf8u"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/Scripts/UI/HUDScript.gd" id="14_nfwi4"]
 [ext_resource type="Texture2D" uid="uid://dq6lmmv7chko6" path="res://addons/Addon Assets/Weapon Textures/atlass_1_diffuse.png" id="15_ivc4p"]
 [ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/Arts/Fonts/Ticketing.ttf" id="15_n4her"]
+[ext_resource type="PackedScene" uid="uid://cjr7gl4qq1oxc" path="res://Objects/Menus/Pause_Menu.tscn" id="24_lgdxi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvtu5"]
 albedo_texture = ExtResource("15_ivc4p")
@@ -1389,15 +1390,17 @@ font_size = 30
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
-[node name="PlayerCharacter" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_holder") groups=["PlayerCharacter", "player"]]
+[node name="PlayerCharacter" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_holder", "flashlight") groups=["PlayerCharacter", "player"]]
 collision_layer = 2
 collision_mask = 97
 floor_constant_speed = true
 floor_max_angle = 1.309
 platform_floor_layers = 4278190081
+platform_wall_layers = 1
 script = ExtResource("1_u8pww")
 camera = NodePath("CameraHolder/CameraRecoilHolder/Camera")
 camera_holder = NodePath("CameraHolder")
+flashlight = NodePath("CameraHolder/CameraRecoilHolder/Camera/WeaponManager/Flashlight")
 
 [node name="LinkComponent" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -1422,6 +1425,9 @@ fov = 90.0
 near = 0.01
 far = 1000.0
 
+[node name="Weapon_Target" type="Marker3D" parent="CameraHolder/CameraRecoilHolder/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
 [node name="WeaponManager" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera" node_paths=PackedStringArray("startWeapons")]
 unique_name_in_owner = true
 script = ExtResource("5_a7v0r")
@@ -1432,7 +1438,8 @@ reload_action = "reload"
 weapon_wheel_up_action = "weaponWheelUp"
 weapon_wheel_down_action = "weaponWheelDown"
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager"]
+[node name="Flashlight" type="SpotLight3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager"]
+visible = false
 light_size = 0.25
 light_bake_mode = 0
 shadow_enabled = true
@@ -1500,7 +1507,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78936e-08, 0.154984, 0.541
 transform = Transform3D(1, 0, -4.54747e-13, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0.065257, 0.568656)
 
 [node name="AssaultRifle" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
-transform = Transform3D(-0.141413, 0.16853, 5.5774e-07, 0.16853, 0.141413, 0, -3.58508e-07, 4.27254e-07, -0.22, 0.194, -0.65, -0.144)
+transform = Transform3D(-0.141413, 0.16853, 5.5774e-07, 0.16853, 0.141413, -3.84895e-13, -3.58508e-07, 4.27254e-07, -0.22, 0.194, -0.65, -0.144)
 script = ExtResource("7_yryjw")
 model = NodePath(".")
 weaponId = 3
@@ -1522,7 +1529,7 @@ transform = Transform3D(1, 0, -8.52651e-14, 0, 1, 0, 8.52651e-14, 0, 1, -3.57628
 transform = Transform3D(1, 0, -9.9476e-14, 0, 1, 0, 9.9476e-14, 0, 1, -2.98023e-07, 0.122833, 1.95517)
 
 [node name="Shotgun" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
-transform = Transform3D(-0.17998, 0.214492, 5.83092e-07, 0.214492, 0.17998, -5.48072e-14, -4.56282e-07, 5.43776e-07, -0.23, 0.197, -0.8, -0.08)
+transform = Transform3D(-0.17998, 0.214492, 5.83092e-07, 0.214492, 0.17998, -7.95922e-14, -4.56282e-07, 5.43776e-07, -0.23, 0.197, -0.8, -0.08)
 script = ExtResource("7_yryjw")
 model = NodePath(".")
 weaponId = 4
@@ -1895,5 +1902,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_ayf8u")
 expand_mode = 1
+
+[node name="Menus" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 9
+follow_viewport_enabled = true
+
+[node name="Pause_Menu" parent="Menus" instance=ExtResource("24_lgdxi")]
+visible = false
 
 [editable path="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel/Type2_Phaser"]

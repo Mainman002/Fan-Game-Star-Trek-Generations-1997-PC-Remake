@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var camera:Camera3D
 @export var camera_holder:Node3D
 @export var stateMachine:Node
+@export var flashlight:SpotLight3D
 
 @export_category("Movement")
 @export_subgroup("Physics")
@@ -63,11 +64,14 @@ var moveDirection : Vector3
 
 ## Controller
 var look_input:Vector2 = Vector2.ZERO
+var move_input:Vector2 = Vector2.ZERO
+var controller_moving:Vector2 = Vector2.ZERO
 var move_input_deadzone:float = 0.08
 var look_speed:Vector2 = Vector2( 25, 15 )
 var look_sensitivity = 0.002
 var look_lerp:float = 0.35
 const joysticks:Array = [ "look_up", "look_down", "look_left", "look_right" ]
+const move_joysticks:Array = [ "L_joy_up", "L_joy_down", "L_joy_left", "L_joy_right" ]
 
 ## Camera Variables
 var trauma:float = 0.0
@@ -124,9 +128,9 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("start_button"):
+	#if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("start_button"):
 		#if not has_node("/root/Scene_Manager"):
-		get_tree().quit()
+		#get_tree().quit()
 		#else:
 			#PlayerStats._reset_stats()
 			#get_node("/root/Scene_Manager")._change_scene( "Level_Select" )
@@ -186,10 +190,15 @@ func _process(delta: float) -> void:
 	if velocity.y < fallLimit:
 		velocity.y = fallLimit
 
+	## Keyboard / Mouse
 	_camera_look( delta )
-	_controller_look( delta )
 	_on_ground( delta )
 	_in_air( delta )
+
+	## Controller
+	_controller_look( delta )
+	#_controller_move( delta )
+	#_controller_on_ground( delta )
 
 	if isGrounded && Input.is_action_just_pressed("jump"):
 		if jumpCount > 0:
@@ -204,6 +213,9 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("run"):
 		isSprinting = not isSprinting
+
+	if Input.is_action_just_pressed("flashlight"):
+		flashlight.visible = not flashlight.visible
 
 	if isSprinting: change_fov(fov_sprint, delta)
 	else: change_fov(fov_walk, delta)
@@ -256,6 +268,54 @@ func _on_ground( _delta: float ) -> void:
 				velocity.z = move_toward(velocity.z, 0, walkSpeed)
 				#velocity.x = move_toward(velocity.x, 0, moveGroundSpeed)
 				#velocity.z = move_toward(velocity.z, 0, moveGroundSpeed)
+
+
+#func _controller_on_ground( _delta: float ) -> void:
+	#if isGrounded:
+		#jumpCount = jumpMax
+#
+		#inputDirection = Input.get_vector("moveLeft", "moveRight", "moveForward", "moveBackward")
+		#var forward:Vector3 = transform.basis.z
+		#forward.y = 0
+		#forward = forward.normalized()
+#
+		#var right:Vector3 = transform.basis.x
+		#right.y = 0
+		#right = right.normalized()
+#
+		#moveDirection = (forward * inputDirection.y + right * inputDirection.x).normalized()
+#
+		## Horizontal movement
+		#if moveDirection != Vector3.ZERO:
+			#if isGrounded:
+				#var speed
+				#if isSprinting:
+					##speed = moveGroundSpeed * 1.25
+					#speed = runSpeed
+				#else:
+					##speed = moveGroundSpeed
+					#speed = walkSpeed
+#
+				#speed = speed * controller_moving.y
+				#velocity.x = moveDirection.x * speed
+				#velocity.z = moveDirection.z * speed
+			#else:
+				#var speed
+				#if isSprinting:
+					#speed = runSpeed
+					##speed = moveGroundSpeed * 1.25
+				#else:
+					#speed = walkSpeed
+					##speed = moveGroundSpeed
+				#speed = speed * controller_moving.y
+				#velocity.x = moveDirection.x * speed
+				#velocity.z = moveDirection.z * speed
+		#else:
+			#if isGrounded:
+				#velocity.x = move_toward(velocity.x, 0, walkSpeed)
+				#velocity.z = move_toward(velocity.z, 0, walkSpeed)
+				##velocity.x = move_toward(velocity.x, 0, moveGroundSpeed)
+				##velocity.z = move_toward(velocity.z, 0, moveGroundSpeed)
 
 
 func _in_air( _delta: float ) -> void:
@@ -375,6 +435,20 @@ func _controller_look( _delta:float ) -> void:
 
 		#rotation.y += look_speed.x * look_input.y * look_sensitivity
 		#nextMouseRotation.x += look_speed.y * look_input.x * look_sensitivity
+
+
+#func _controller_move( _delta:float ) -> void:
+	#move_input.x = Input.get_action_strength("L_joy_up") - Input.get_action_strength("L_joy_down")
+	#move_input.y = Input.get_action_strength("L_joy_left") - Input.get_action_strength("L_joy_right")
+#
+#
+	#if Vector2.ZERO.distance_to(move_input) > move_input_deadzone*sqrt(2.0):
+		#print( move_input )
+		#controller_moving = move_input
+
+		#yaw += look_speed.y * move_input.y * _delta * 0.14 ## Horizontal
+		#pitch += look_speed.x * move_input.x * _delta * 0.085 ## Vertical
+		#pitch = clamp(pitch, deg_to_rad(maxUpAngle), deg_to_rad(maxDownAngle))
 
 
 func _apply_vertical_impulse( _direction:int=1, _force:float=4.3 ) -> void:

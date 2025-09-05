@@ -1,0 +1,171 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjr7gl4qq1oxc"]
+
+[ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="1_6ra1j"]
+[ext_resource type="Script" uid="uid://c1rgmyoaem4l2" path="res://Objects/Menus/Scripts/Containers/Pause_Menu.gd" id="1_kcc6r"]
+[ext_resource type="FontFile" uid="uid://lypo0qj4o141" path="res://Fonts/Obitron/Orbitron-VariableFont_wght.ttf" id="2_t8dik"]
+[ext_resource type="Script" uid="uid://dsno1lu4gv5f5" path="res://Objects/Menus/Scripts/Containers/Tab_Container.gd" id="3_eahvy"]
+[ext_resource type="Script" uid="uid://cowpp74qotmxn" path="res://Objects/Menus/Scripts/Buttons/Quit_Game.gd" id="3_tqkdt"]
+[ext_resource type="Script" uid="uid://ddrhc5gfcnd1" path="res://Objects/Menus/Scripts/Containers/Tab.gd" id="5_eflnm"]
+[ext_resource type="Script" uid="uid://bnl6cwgq0gm5w" path="res://Objects/Menus/Scripts/Buttons/Resume_Game.gd" id="5_f6tcv"]
+[ext_resource type="Script" uid="uid://bb05rmqunxdda" path="res://Objects/Menus/Scripts/CheckBoxes/Fullscreen_CB.gd" id="8_rgelq"]
+[ext_resource type="Script" uid="uid://y1dnngbuxj38" path="res://Objects/Menus/Scripts/Sliders/Graphics_Presets_HS.gd" id="8_v1kb7"]
+
+[node name="Pause_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kcc6r")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ra1j")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TabContainer" type="TabContainer" parent="MC"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t8dik")
+theme_override_font_sizes/font_size = 24
+tab_alignment = 1
+current_tab = 0
+tab_focus_mode = 0
+script = ExtResource("3_eahvy")
+
+[node name="Main" type="Control" parent="MC/TabContainer" node_paths=PackedStringArray("first_focus")]
+layout_mode = 2
+script = ExtResource("5_eflnm")
+first_focus = NodePath("VB/Resume")
+metadata/_tab_index = 0
+
+[node name="VB" type="VBoxContainer" parent="MC/TabContainer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Resume" type="Button" parent="MC/TabContainer/Main/VB"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_t8dik")
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+script = ExtResource("5_f6tcv")
+
+[node name="Quit" type="Button" parent="MC/TabContainer/Main/VB"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_t8dik")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+script = ExtResource("3_tqkdt")
+
+[node name="Display" type="Control" parent="MC/TabContainer" node_paths=PackedStringArray("first_focus")]
+visible = false
+layout_mode = 2
+script = ExtResource("5_eflnm")
+first_focus = NodePath("VB/Fullscreen")
+metadata/_tab_index = 1
+
+[node name="VB" type="VBoxContainer" parent="MC/TabContainer/Display"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Fullscreen" type="CheckBox" parent="MC/TabContainer/Display/VB"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_t8dik")
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen"
+expand_icon = true
+script = ExtResource("8_rgelq")
+
+[node name="Graphics" type="Control" parent="MC/TabContainer" node_paths=PackedStringArray("first_focus")]
+visible = false
+layout_mode = 2
+script = ExtResource("5_eflnm")
+first_focus = NodePath("VB/Presets_HB/Graphics_Presets_HS")
+metadata/_tab_index = 2
+
+[node name="VB" type="VBoxContainer" parent="MC/TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Presets_HB" type="HBoxContainer" parent="MC/TabContainer/Graphics/VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MC/TabContainer/Graphics/VB/Presets_HB"]
+layout_mode = 2
+text = "Presets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Graphics_Presets_HS" type="HSlider" parent="MC/TabContainer/Graphics/VB/Presets_HB"]
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 5.0
+value = 1.0
+tick_count = 6
+ticks_on_borders = true
+script = ExtResource("8_v1kb7")
+
+[connection signal="tab_changed" from="MC/TabContainer" to="MC/TabContainer" method="_on_tab_changed"]

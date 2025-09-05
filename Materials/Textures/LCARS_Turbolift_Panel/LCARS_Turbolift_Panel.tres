@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cx6ocdftu1pkf"]
+
+[ext_resource type="Texture2D" uid="uid://c8ppr8e4678px" path="res://Materials/Textures/LCARS_Turbolift_Panel/LCARS_Turbolift_Panel_Color.png" id="1_ntfpk"]
+[ext_resource type="Texture2D" uid="uid://bjnvusobakcxo" path="res://Materials/Textures/LCARS_Turbolift_Panel/LCARS_Turbolift_Panel_Emissive.png" id="2_dyhxh"]
+
+[resource]
+albedo_texture = ExtResource("1_ntfpk")
+metallic = 0.7
+metallic_specular = 0.59
+roughness = 0.4
+emission_enabled = true
+emission_energy_multiplier = 0.6
+emission_texture = ExtResource("2_dyhxh")

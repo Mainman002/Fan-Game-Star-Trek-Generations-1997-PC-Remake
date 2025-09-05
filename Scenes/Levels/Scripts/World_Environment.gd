@@ -4,95 +4,126 @@ const presets:Array = [
 	## Potato
 	{
 		"SSR": [
-			false
+			false,
 			],
 		"SSAO": [
-			false
+			false,
 			],
 		"SDFGI": [
-			false
+			false,
+			false,
+			false,
 			],
 		"Glow": [
-			false
+			false,
 			],
 		"Volumetric_Fog": [
-			false
+			false,
 			],
 	},
 
 	## Mobile
 	{
 		"SSR": [
-			false
+			false,
 			],
 		"SSAO": [
-			false
+			false,
 			],
 		"SDFGI": [
-			false
+			false,
+			false,
+			false,
 			],
 		"Glow": [
-			true
+			true,
 			],
 		"Volumetric_Fog": [
-			false
+			false,
 			],
 	},
 
 	## Standard
 	{
 		"SSR": [
-			false
+			false,
 			],
 		"SSAO": [
-			true
+			true,
 			],
 		"SDFGI": [
-			false
+			false,
+			false,
+			false,
 			],
 		"Glow": [
-			true
+			true,
 			],
 		"Volumetric_Fog": [
-			false
+			false,
 			],
 	},
 
 	## Modern
 	{
 		"SSR": [
-			false
+			false,
 			],
 		"SSAO": [
-			true
+			true,
 			],
 		"SDFGI": [
-			true
+			true,
+			false,
+			false,
 			],
 		"Glow": [
-			true
+			true,
 			],
 		"Volumetric_Fog": [
-			true
+			true,
 			],
 	},
 
 	## Ultra
 	{
 		"SSR": [
-			true
+			true,
 			],
 		"SSAO": [
-			true
+			true,
 			],
 		"SDFGI": [
-			true
+			true,
+			false,
+			false,
 			],
 		"Glow": [
-			true
+			true,
 			],
 		"Volumetric_Fog": [
-			true
+			true,
+			],
+	},
+
+	## Super Ultra
+	{
+		"SSR": [
+			true,
+			],
+		"SSAO": [
+			true,
+			],
+		"SDFGI": [
+			true,
+			true,
+			true,
+			],
+		"Glow": [
+			true,
+			],
+		"Volumetric_Fog": [
+			true,
 			],
 	},
 ]
@@ -102,7 +133,9 @@ const presets:Array = [
 
 
 func _ready() -> void:
-	set_preset( 1 )
+	SettingsManager.world_environment = self
+	SettingsManager._refresh_settings()
+	#set_preset( 1 )
 
 
 #func refresh_preset() -> void:
@@ -129,6 +162,8 @@ func set_key_values( _idx:int, _key:String ) -> void:
 			environment.set("ssao_enabled", presets[_idx][_key][0])
 		"SDFGI":
 			environment.set("sdfgi_enabled", presets[_idx][_key][0])
+			environment.set("sdfgi_use_occlusion", presets[_idx][_key][1])
+			environment.set("sdfgi_read_sky_light", presets[_idx][_key][2])
 		"Glow":
 			environment.set("glow_enabled", presets[_idx][_key][0])
 		"Volumetric_Fog":
