@@ -3,8 +3,12 @@ extends Control
 #var fullscreen:bool = false
 
 const scene_list := {
-	"Blank": preload("res://Scenes/Blank.tscn"),
-	"Amargosa": preload("res://Scenes/Levels/Ambargosa_Station.tscn"),
+	## Menus
+	"blank": preload("res://Scenes/Blank.tscn"),
+
+	## Scenes
+	"amargosa_station": preload("res://Scenes/Levels/Ambargosa_Station.tscn"),
+	"fps_controller_testing": preload("res://Scenes/Levels/FPS_Controller_Testing.tscn"),
 }
 
 var next_scene: String = ""
@@ -19,7 +23,7 @@ var changing_scenes:bool = false
 func _ready() -> void:
 	#if fullscreen: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	animation_player.animation_finished.connect(_on_animation_finished)
-	_change_scene("Blank")
+	_change_scene("blank")
 
 
 func _input(event: InputEvent) -> void:
@@ -47,14 +51,16 @@ func _skip_transition(scene: String) -> void:
 
 
 func _change_scene(scene: String) -> void:
-	if scene == "Quit":
+	var _scene:String = scene.to_lower()
+
+	if _scene == "quit":
 		changing_scenes = false
 		next_scene = "Quit"
 		animation_player.play("Fade_Out")
 	else:
 		changing_scenes = true
-		if next_scene != scene:
-			next_scene = scene
+		if next_scene != _scene:
+			next_scene = _scene
 			animation_player.play("Fade_Out")
 
 

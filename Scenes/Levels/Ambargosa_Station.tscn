@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhy6j6cpoaa46"]
+[gd_scene load_steps=13 format=3 uid="uid://dhy6j6cpoaa46"]
 
+[ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="1_dl5ft"]
 [ext_resource type="LightmapGIData" uid="uid://c7km641xfapo0" path="res://Scenes/Levels/Lightmaps/Ambargosa_Station.lmbake" id="1_i7241"]
 [ext_resource type="PackedScene" uid="uid://jqie5wyy40mn" path="res://Models/Complete_Levels/Ambargosa_Station/Ambargosa_Station.glb" id="1_uqjgr"]
 [ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="2_lkl5h"]
@@ -58,6 +59,7 @@ interior = true
 enable_shadows = true
 ambient_mode = 2
 ambient_color = Color(0.051971, 0.051971, 0.051971, 1)
+script = ExtResource("1_dl5ft")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(-0.955278, 0.256091, -0.147854, 0, 0.5, 0.866026, 0.295708, 0.827295, -0.477639, 0, 0, 0)

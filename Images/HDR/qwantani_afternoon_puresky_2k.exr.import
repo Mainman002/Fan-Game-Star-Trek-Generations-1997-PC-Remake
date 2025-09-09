@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://plfgj5pfclgd"
-path.bptc="res://.godot/imported/HDRI_Epic_Courtyard_Daylight.HDR-11e3fb44b79ae909d91fec5a56e9506c.bptc.ctex"
-path.astc="res://.godot/imported/HDRI_Epic_Courtyard_Daylight.HDR-11e3fb44b79ae909d91fec5a56e9506c.astc.ctex"
+uid="uid://b8iy6xkx2j3e4"
+path.bptc="res://.godot/imported/qwantani_afternoon_puresky_2k.exr-bac0f3ac9b3570a0608adf714c9622b8.bptc.ctex"
+path.astc="res://.godot/imported/qwantani_afternoon_puresky_2k.exr-bac0f3ac9b3570a0608adf714c9622b8.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Images/HDR/HDRI_Epic_Courtyard_Daylight.HDR"
-dest_files=["res://.godot/imported/HDRI_Epic_Courtyard_Daylight.HDR-11e3fb44b79ae909d91fec5a56e9506c.bptc.ctex", "res://.godot/imported/HDRI_Epic_Courtyard_Daylight.HDR-11e3fb44b79ae909d91fec5a56e9506c.astc.ctex"]
+source_file="res://Images/HDR/qwantani_afternoon_puresky_2k.exr"
+dest_files=["res://.godot/imported/qwantani_afternoon_puresky_2k.exr-bac0f3ac9b3570a0608adf714c9622b8.bptc.ctex", "res://.godot/imported/qwantani_afternoon_puresky_2k.exr-bac0f3ac9b3570a0608adf714c9622b8.astc.ctex"]
 
 [params]
 
