@@ -2,7 +2,7 @@
 Godot remake of Star Trek Generations 1997 PC
 
 ## What is this project?
-A fan remake with a few modernization tweaks. This project is mostly just me experimenting with level design, lighting, 3D Modelling, & gameplay.
+A fan remake with a few modernization tweaks. This project is mostly just me experimenting with level design, lighting, 3D Modelling, & gameplay. Also available on [ItchIO](https://tnt-gamez.itch.io/st-generations-1997-remake)
 
 ## Uses
 * [Godot 4.4.1](https://godotengine.org/download/archive/4.4.1-stable/)
