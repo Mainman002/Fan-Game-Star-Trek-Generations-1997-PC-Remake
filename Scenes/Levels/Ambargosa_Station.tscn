@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhy6j6cpoaa46"]
+[gd_scene load_steps=14 format=3 uid="uid://dhy6j6cpoaa46"]
 
 [ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="1_dl5ft"]
-[ext_resource type="LightmapGIData" uid="uid://c7km641xfapo0" path="res://Scenes/Levels/Lightmaps/Ambargosa_Station.lmbake" id="1_i7241"]
+[ext_resource type="LightmapGIData" uid="uid://c7km641xfapo0" path="res://Scenes/Levels/Lightmaps/Amargosa_Station/Ambargosa_Station.lmbake" id="1_i7241"]
 [ext_resource type="PackedScene" uid="uid://jqie5wyy40mn" path="res://Models/Complete_Levels/Ambargosa_Station/Ambargosa_Station.glb" id="1_uqjgr"]
 [ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="2_lkl5h"]
 [ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="2_tv7er"]
@@ -20,7 +20,7 @@ sky = SubResource("Sky_uqjgr")
 tonemap_mode = 2
 ssr_max_steps = 24
 ssao_enabled = true
-ssil_radius = 1.06
+ssil_radius = 4.0
 ssil_intensity = 0.25
 ssil_sharpness = 0.44
 ssil_normal_rejection = 0.61
@@ -41,6 +41,9 @@ size = Vector3(300, 0.5, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i7241"]
 size = Vector3(1, 3.00488, 3.81055)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl5ft"]
+size = Vector3(1.88184, 3.00327, 1)
 
 [node name="Ambargosa_Station" type="Node3D"]
 metadata/_edit_lock_ = true
@@ -176,3 +179,18 @@ shape = SubResource("BoxShape3D_i7241")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("5_i7241")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 6, 1, 0)
+
+[node name="Temp_Doors" type="StaticBody3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Temp_Doors"]
+transform = Transform3D(0.917796, 0, -0.397052, 0, 1, 0, 0.397052, 0, 0.917796, 15.6501, 1.48998, -5.33656)
+shape = SubResource("BoxShape3D_dl5ft")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Temp_Doors"]
+transform = Transform3D(0.583215, 0, -0.812318, 0, 1, 0, 0.812318, 0, 0.583215, 14.5634, 1.48998, 7.45418)
+shape = SubResource("BoxShape3D_dl5ft")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Temp_Doors"]
+transform = Transform3D(-0.223778, 0, -0.97464, 0, 1, 0, 0.97464, 0, -0.223778, 32.1477, 1.48998, -11.3378)
+shape = SubResource("BoxShape3D_dl5ft")

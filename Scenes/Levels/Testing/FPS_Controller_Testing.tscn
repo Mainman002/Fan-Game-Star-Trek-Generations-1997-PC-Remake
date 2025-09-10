@@ -1,12 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://htmy5ix60gk7"]
+[gd_scene load_steps=27 format=3 uid="uid://htmy5ix60gk7"]
 
 [ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="1_t7v4d"]
 [ext_resource type="Texture2D" uid="uid://b8iy6xkx2j3e4" path="res://Images/HDR/qwantani_afternoon_puresky_2k.exr" id="2_t7v4d"]
 [ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="3_baykk"]
-[ext_resource type="LightmapGIData" uid="uid://bwteqvl2tpsd8" path="res://Scenes/Levels/Lightmaps/FPS_Controller_Testing.lmbake" id="4_t7v4d"]
+[ext_resource type="LightmapGIData" uid="uid://bwteqvl2tpsd8" path="res://Scenes/Levels/Testing/Lightmaps/FPS_Controller_Testing/FPS_Controller_Testing.lmbake" id="4_t7v4d"]
 [ext_resource type="Material" uid="uid://bu7tj6ka05jwg" path="res://addons/Arts/Materials/StructureMaterial1.tres" id="5_hc8u5"]
 [ext_resource type="PackedScene" uid="uid://dqo1ja3hpw00s" path="res://Objects/Players/Player.tscn" id="7_6qflb"]
 [ext_resource type="Material" uid="uid://cgn7do4y8jc0o" path="res://addons/Arts/Materials/StructureMaterial2.tres" id="7_t7v4d"]
+[ext_resource type="PackedScene" uid="uid://kspjf3as235m" path="res://Models/Level_Props/Turbolifts/Ambargosa_Turbolift.tscn" id="8_hqt05"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_baykk"]
 panorama = ExtResource("2_t7v4d")
@@ -100,7 +101,7 @@ size = Vector3(100, 15, 100)
 box_projection = true
 enable_shadows = true
 ambient_mode = 2
-ambient_color = Color(0.051971, 0.051971, 0.051971, 1)
+ambient_color = Color(0.52312, 0.52312, 0.52312, 1)
 script = ExtResource("1_t7v4d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
@@ -115,6 +116,12 @@ script = ExtResource("3_baykk")
 [node name="Lights" type="Node3D" parent="Lighting"]
 metadata/_edit_lock_ = true
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5, 4.39286, 6)
+light_bake_mode = 1
+spot_range = 5.29085
+spot_angle = 88.5938
+
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 3
 supersampling = true
@@ -122,7 +129,7 @@ directional = true
 shadowmask_mode = 2
 interior = true
 environment_mode = 3
-environment_custom_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+environment_custom_color = Color(0.393086, 0.393086, 0.393085, 1)
 light_data = ExtResource("4_t7v4d")
 
 [node name="Meshes" type="Node3D" parent="LightmapGI"]
@@ -191,6 +198,98 @@ size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Short"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="2nd_Floor" type="Node3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes"]
+
+[node name="Short_Floor" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 4.4, 6.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor2" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999999, 4.4, 6.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor2"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor2"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor3" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 4.4, 6.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor3"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor3"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor4" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 4.4, 8.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor4"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor4"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor5" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999999, 4.4, 8.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor5"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor5"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor6" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 4.4, 8.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor6"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor6"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor7" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 4.4, 4.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor7"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor7"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor8" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999999, 4.4, 4.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor8"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor8"]
+shape = SubResource("ConcavePolygonShape3D_6qflb")
+
+[node name="Short_Floor9" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 4.4, 4.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor9"]
+size = Vector3(2, 0.1, 2)
+material = ExtResource("7_t7v4d")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor9"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
 [node name="Mid" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes"]
@@ -295,3 +394,6 @@ shape = SubResource("ConcavePolygonShape3D_yp5m1")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("7_6qflb")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 1, 0)
+
+[node name="Ambargosa_Turbolift" parent="." instance=ExtResource("8_hqt05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.43533, 0.00386738, 6.20602)

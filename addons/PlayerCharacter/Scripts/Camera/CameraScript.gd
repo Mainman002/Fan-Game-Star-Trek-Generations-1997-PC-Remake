@@ -78,12 +78,12 @@ func _ready():
 		#get_tree().set_input_as_handled()
 
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		target_rotation_y -= event.relative.x * (XAxisSens / 80.0)
-		target_camera_pitch -= event.relative.y * (YAxisSens / 80.0)
-
-		target_camera_pitch = clamp(target_camera_pitch, deg_to_rad(maxUpAngleView), deg_to_rad(maxDownAngleView))
+#func _unhandled_input(event):
+	#if event is InputEventMouseMotion:
+		#target_rotation_y -= event.relative.x * (XAxisSens / 80.0)
+		#target_camera_pitch -= event.relative.y * (YAxisSens / 80.0)
+#
+		#target_camera_pitch = clamp(target_camera_pitch, deg_to_rad(maxUpAngleView), deg_to_rad(maxDownAngleView))
 
 
 func _process(delta):

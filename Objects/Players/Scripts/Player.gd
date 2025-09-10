@@ -2,9 +2,10 @@ extends CharacterBody3D
 
 @export_category("Nodes")
 @export var camera:Camera3D
+@export var camera_viewport:Camera3D
 @export var camera_holder:Node3D
-@export var stateMachine:Node
 @export var flashlight:SpotLight3D
+@export var stateMachine:Node
 
 @export_category("Movement")
 @export_subgroup("Physics")
@@ -57,6 +58,8 @@ var isMovingX:bool = false
 var isMovingZ:bool = false
 var isGrounded:bool = false
 var isSprinting:bool = false
+var jumpLock:bool = true
+var moveLock:bool = true
 var jumpCount:int = jumpMax
 var moveDir:Vector3i = Vector3i.ZERO
 var inputDirection : Vector2
@@ -106,10 +109,15 @@ func _ready() -> void:
 	#nbJumpsInAirAllowedRef = nbJumpsInAirAllowed
 	#coyoteJumpCooldownRef = coyoteJumpCooldown
 
-	$CameraHolder.startFOV = fov
-	$CameraHolder.runFOV = fov + 10
-	$CameraHolder/CameraRecoilHolder/Camera.fov = fov
-	$SubViewportContainer/SubViewport/ViewportCam.fov = fov
+	if camera_holder:
+		camera_holder.startFOV = fov
+		camera_holder.runFOV = fov + 10
+
+	if camera:
+		camera.fov = fov
+
+	if camera_viewport:
+		camera_viewport.fov = fov
 
 	#yaw = 0.0
 	##camera.transform.basis.z = -transform.basis.z
@@ -125,6 +133,10 @@ func _ready() -> void:
 	#camera.fov = fov
 	##camera_ui.fov = fov
 
+	await get_tree().create_timer(0.7).timeout
+	jumpLock = false
+	moveLock = false
+
 
 
 func _input(event: InputEvent) -> void:
@@ -139,10 +151,11 @@ func _input(event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("run"):
 		#isSprinting = not isSprinting
 
-	if event is InputEventMouseMotion:
-		yaw -= event.relative.x * mouse_sensitivity
-		pitch -= event.relative.y * mouse_sensitivity
-		pitch = clamp(pitch, deg_to_rad(maxUpAngle), deg_to_rad(maxDownAngle))
+	if not moveLock:
+		if event is InputEventMouseMotion:
+			yaw -= event.relative.x * mouse_sensitivity * SettingsManager.settings["look_sensitivity"]
+			pitch -= event.relative.y * mouse_sensitivity * SettingsManager.settings["look_sensitivity"]
+			pitch = clamp(pitch, deg_to_rad(maxUpAngle), deg_to_rad(maxDownAngle))
 
 	#if event is InputEventMouseMotion:
 		#look_lerp = 0.25
@@ -200,10 +213,11 @@ func _process(delta: float) -> void:
 	#_controller_move( delta )
 	#_controller_on_ground( delta )
 
-	if isGrounded && Input.is_action_just_pressed("jump"):
-		if jumpCount > 0:
-			_apply_vertical_impulse( 1, -jumpForce*10 )
-			jumpCount -= 1
+	if not jumpLock:
+		if isGrounded && Input.is_action_just_pressed("jump"):
+			if jumpCount > 0:
+				_apply_vertical_impulse( 1, -jumpForce*10 )
+				jumpCount -= 1
 	#elif Input.is_action_just_pressed("jump"):
 		#if jumpCount > 0:
 			#_apply_vertical_impulse( 1, -jumpForce*10 )
@@ -221,6 +235,11 @@ func _process(delta: float) -> void:
 	else: change_fov(fov_walk, delta)
 
 	if velocity.y < fallLimit: velocity.y = fallLimit
+
+	if moveLock:
+		velocity.x = 0
+		velocity.z = 0
+
 	move_and_slide()
 
 
@@ -268,7 +287,6 @@ func _on_ground( _delta: float ) -> void:
 				velocity.z = move_toward(velocity.z, 0, walkSpeed)
 				#velocity.x = move_toward(velocity.x, 0, moveGroundSpeed)
 				#velocity.z = move_toward(velocity.z, 0, moveGroundSpeed)
-
 
 #func _controller_on_ground( _delta: float ) -> void:
 	#if isGrounded:
@@ -320,12 +338,14 @@ func _on_ground( _delta: float ) -> void:
 
 func _in_air( _delta: float ) -> void:
 	if not isGrounded:
-		if Input.is_action_just_pressed("jump"):
-			if jumpCount > 0:
-				_apply_vertical_impulse( 1, -jumpForce*10 )
-				jumpCount -= 1
-		elif Input.is_action_just_released("jump"):
-			if velocity.y > 0: velocity.y = lerpf( velocity.y, 0, 0.4 )
+
+		if not jumpLock:
+			if Input.is_action_just_pressed("jump"):
+				if jumpCount > 0:
+					_apply_vertical_impulse( 1, -jumpForce*10 )
+					jumpCount -= 1
+			elif Input.is_action_just_released("jump"):
+				if velocity.y > 0: velocity.y = lerpf( velocity.y, 0, 0.4 )
 
 		inputDirection = Input.get_vector("moveLeft", "moveRight", "moveForward", "moveBackward")
 
@@ -407,27 +427,32 @@ func _in_air( _delta: float ) -> void:
 
 
 func _camera_look( _delta:float ) -> void:
-	# Rotate the player body horizontally (yaw only)
-	rotation.y = lerp_angle(rotation.y, yaw, look_lerp)
+	if not moveLock:
+		#var _look_lerp:float = SettingsManager.settings["look_sensitivity"]
+		#var _yaw:float = yaw + SettingsManager.settings["look_sensitivity"]
+		#var _pitch:float = pitch + SettingsManager.settings["look_sensitivity"]
 
-	# Rotate the camera vertically (pitch only)
-	var cam_rot = camera.rotation
-	cam_rot.x = lerp(cam_rot.x, pitch, look_lerp)
-	camera.rotation = cam_rot
+		# Rotate the player body horizontally (yaw only)
+		rotation.y = lerp_angle(rotation.y, yaw, look_lerp)
+
+		# Rotate the camera vertically (pitch only)
+		var cam_rot = camera.rotation
+		cam_rot.x = lerp(cam_rot.x, pitch, look_lerp)
+		camera.rotation = cam_rot
 
 	#camera.rotation.y = lerp( camera.rotation.y, nextMouseRotation.y, look_lerp )
 	#camera.rotation.x = lerp( camera.rotation.x, nextMouseRotation.x, look_lerp )
 
 
 func _controller_look( _delta:float ) -> void:
-	look_input.x = Input.get_action_strength("look_up") - Input.get_action_strength("look_down")
-	look_input.y = Input.get_action_strength("look_left") - Input.get_action_strength("look_right")
+	if not moveLock:
+		look_input.x = Input.get_action_strength("look_up") - Input.get_action_strength("look_down")
+		look_input.y = Input.get_action_strength("look_left") - Input.get_action_strength("look_right")
 
-
-	if Vector2.ZERO.distance_to(look_input) > move_input_deadzone*sqrt(2.0):
-		yaw += look_speed.y * look_input.y * _delta * 0.14 ## Horizontal
-		pitch += look_speed.x * look_input.x * _delta * 0.085 ## Vertical
-		pitch = clamp(pitch, deg_to_rad(maxUpAngle), deg_to_rad(maxDownAngle))
+		if Vector2.ZERO.distance_to(look_input) > move_input_deadzone*sqrt(2.0):
+			yaw += look_speed.y * look_input.y * _delta * 0.14 * SettingsManager.settings["look_sensitivity"] ## Horizontal
+			pitch += look_speed.x * look_input.x * _delta * 0.085 * SettingsManager.settings["look_sensitivity"] ## Vertical
+			pitch = clamp(pitch, deg_to_rad(maxUpAngle), deg_to_rad(maxDownAngle))
 		#var cam_rot = camera.rotation
 		#look_lerp = 0.32
 		#cam_rot.x = lerp(cam_rot.x, pitch, look_lerp)
@@ -503,8 +528,12 @@ func change_fov( _fov:float, delta:float ) -> void:
 	var temp_fov:float = camera.fov
 	temp_fov = lerp(temp_fov, _fov, 0.2 * delta * velocity.length())
 	camera.fov = temp_fov
-	$CameraHolder/CameraRecoilHolder/Camera.fov = temp_fov
-	$SubViewportContainer/SubViewport/ViewportCam.fov = temp_fov
+
+	if camera:
+		camera.fov = temp_fov
+
+	if camera_viewport:
+		camera_viewport.fov = temp_fov
 
 
 func shake() -> void:

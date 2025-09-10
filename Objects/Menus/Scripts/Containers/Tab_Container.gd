@@ -6,7 +6,8 @@ var max_tabs:int = 0
 
 
 func _ready() -> void:
-	max_tabs = get_tab_count()-1
+	max_tabs = get_child_count()-1
+	current_tab = 0
 
 
 func _input(_event: InputEvent) -> void:

@@ -8,7 +8,7 @@ const scene_list := {
 
 	## Scenes
 	"amargosa_station": preload("res://Scenes/Levels/Ambargosa_Station.tscn"),
-	"fps_controller_testing": preload("res://Scenes/Levels/FPS_Controller_Testing.tscn"),
+	"fps_controller_testing": preload("res://Scenes/Levels/Testing/FPS_Controller_Testing.tscn"),
 }
 
 var next_scene: String = ""
@@ -43,6 +43,26 @@ func _input(event: InputEvent) -> void:
 			_remove_scene()
 			await get_tree().process_frame
 			animation_player.play("Fade_In")
+
+
+#func window_set_rect_changed_callback(_callback: Callable, _window_id: int = 0):
+	#print( _callback )
+
+
+#func _process(_delta: float) -> void:
+	#if Window.is_res:
+		#visibility_changed()
+
+
+#func _notification( what ):
+	#if what == NOTIFICATION_WM_SIZE_CHANGED:
+		#visibility_changed()
+
+
+#func visibility_changed() -> void:
+	#get_viewport().size_changed
+	#SettingsManager._refresh_settings()
+	#print( "Changed" )
 
 
 func _skip_transition(scene: String) -> void:
@@ -93,5 +113,7 @@ func _add_scene() -> void:
 
 
 func _remove_scene() -> void:
+	SettingsManager._free_ui_items()
+
 	for child in scenes.get_children():
 		child.queue_free()
