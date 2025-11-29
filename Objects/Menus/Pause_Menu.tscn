@@ -177,7 +177,7 @@ value_type = 1
 visible = false
 layout_mode = 2
 script = ExtResource("5_eflnm")
-first_focus = NodePath("VB/Presets_HB/Graphics_Presets_HS")
+first_focus = NodePath("VB/lightmap_gi")
 metadata/_tab_index = 2
 
 [node name="VB" type="VBoxContainer" parent="MC/TabContainer/Graphics"]
@@ -192,6 +192,7 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Presets_HB" type="HBoxContainer" parent="MC/TabContainer/Graphics/VB"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -223,6 +224,18 @@ script = ExtResource("8_v1kb7")
 value_label = NodePath("../Value")
 setting_key = "quality_preset"
 value_type = 1
+
+[node name="lightmap_gi" type="CheckBox" parent="MC/TabContainer/Graphics/VB"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_t8dik")
+theme_override_font_sizes/font_size = 24
+text = "Lightmap GI"
+expand_icon = true
+script = ExtResource("8_rgelq")
+setting_key = "lightmap_gi"
 
 [node name="reflection_probe" type="CheckBox" parent="MC/TabContainer/Graphics/VB"]
 custom_minimum_size = Vector2(400, 50)

@@ -1,17 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhy6j6cpoaa46"]
+[gd_scene load_steps=18 format=3 uid="uid://undtvc0qt2sc"]
 
-[ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="1_dl5ft"]
-[ext_resource type="LightmapGIData" uid="uid://c7km641xfapo0" path="res://Scenes/Levels/Lightmaps/Amargosa_Station/Ambargosa_Station.lmbake" id="1_i7241"]
-[ext_resource type="PackedScene" uid="uid://jqie5wyy40mn" path="res://Models/Complete_Levels/Ambargosa_Station/Ambargosa_Station.glb" id="1_uqjgr"]
-[ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="2_lkl5h"]
-[ext_resource type="Script" uid="uid://by1n0phxkydtb" path="res://Scenes/Levels/Scripts/Lightmap_GI.gd" id="2_quktk"]
-[ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="2_tv7er"]
-[ext_resource type="PackedScene" uid="uid://kspjf3as235m" path="res://Models/Level_Props/Turbolifts/Ambargosa_Turbolift.tscn" id="3_t2hu2"]
-[ext_resource type="PackedScene" uid="uid://dqo1ja3hpw00s" path="res://Objects/Players/Player.tscn" id="5_i7241"]
-[ext_resource type="PackedScene" uid="uid://c1buwig1cg803" path="res://Models/Level_Props/Doors/Amargosa_Door.tscn" id="7_aegs5"]
+[ext_resource type="LightmapGIData" uid="uid://c7km641xfapo0" path="res://Scenes/Levels/Lightmaps/Amargosa_Station/Ambargosa_Station.lmbake" id="1_hf772"]
+[ext_resource type="Script" uid="uid://by1n0phxkydtb" path="res://Scenes/Levels/Scripts/Lightmap_GI.gd" id="2_sckn2"]
+[ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="3_1xjki"]
+[ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="4_auyno"]
+[ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="5_0qxuk"]
+[ext_resource type="PackedScene" uid="uid://jqie5wyy40mn" path="res://Models/Complete_Levels/Ambargosa_Station/Ambargosa_Station.glb" id="6_y8pei"]
+[ext_resource type="PackedScene" uid="uid://kspjf3as235m" path="res://Models/Level_Props/Turbolifts/Ambargosa_Turbolift.tscn" id="7_mci0u"]
+[ext_resource type="PackedScene" uid="uid://c1buwig1cg803" path="res://Models/Level_Props/Doors/Amargosa_Door.tscn" id="8_ifkeu"]
+[ext_resource type="PackedScene" uid="uid://dqo1ja3hpw00s" path="res://Objects/Players/Player.tscn" id="9_80tg7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t2hu2"]
-panorama = ExtResource("2_tv7er")
+panorama = ExtResource("4_auyno")
 
 [sub_resource type="Sky" id="Sky_quktk"]
 sky_material = SubResource("PanoramaSkyMaterial_t2hu2")
@@ -68,8 +68,8 @@ max_texture_size = 8192
 environment_mode = 3
 environment_custom_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
 generate_probes_subdiv = 1
-light_data = ExtResource("1_i7241")
-script = ExtResource("2_quktk")
+light_data = ExtResource("1_hf772")
+script = ExtResource("2_sckn2")
 metadata/_edit_lock_ = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
@@ -83,7 +83,7 @@ interior = true
 enable_shadows = true
 ambient_mode = 2
 ambient_color = Color(0.051971, 0.051971, 0.051971, 1)
-script = ExtResource("1_dl5ft")
+script = ExtResource("3_1xjki")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -94,7 +94,7 @@ metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kdgre")
-script = ExtResource("2_lkl5h")
+script = ExtResource("5_0qxuk")
 
 [node name="Lighting" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -171,38 +171,38 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.53, 0)
 shape = SubResource("BoxShape3D_kdgre")
 
-[node name="Ambargosa_Station_01" parent="Meshes" instance=ExtResource("1_uqjgr")]
+[node name="Ambargosa_Station_01" parent="Meshes" instance=ExtResource("6_y8pei")]
 
 [node name="Turbolifts" type="Node3D" parent="Meshes"]
 metadata/_edit_lock_ = true
 
-[node name="Ambargosa_Turbolift" parent="Meshes/Turbolifts" instance=ExtResource("3_t2hu2")]
+[node name="Ambargosa_Turbolift" parent="Meshes/Turbolifts" instance=ExtResource("7_mci0u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.778, -4.5, 0.012)
 locked = true
 current_floor = 1
 
-[node name="Ambargosa_Turbolift2" parent="Meshes/Turbolifts" instance=ExtResource("3_t2hu2")]
+[node name="Ambargosa_Turbolift2" parent="Meshes/Turbolifts" instance=ExtResource("7_mci0u")]
 transform = Transform3D(0.203454, 0, 0.979085, 0, 1, 0, -0.979085, 0, 0.203454, 29.5845, 0.2, -8.54056)
 
-[node name="Ambargosa_Turbolift3" parent="Meshes/Turbolifts" instance=ExtResource("3_t2hu2")]
+[node name="Ambargosa_Turbolift3" parent="Meshes/Turbolifts" instance=ExtResource("7_mci0u")]
 transform = Transform3D(0.122424, 0, -0.992478, 0, 1, 0, 0.992478, 0, 0.122424, 29.4343, 0.2, 8.65652)
 
 [node name="Doors" type="Node3D" parent="Meshes"]
 metadata/_edit_lock_ = true
 
-[node name="Amargosa_Door" parent="Meshes/Doors" instance=ExtResource("7_aegs5")]
+[node name="Amargosa_Door" parent="Meshes/Doors" instance=ExtResource("8_ifkeu")]
 transform = Transform3D(0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, 0.422618, 15.601, 0, -5.121)
 
-[node name="Amargosa_Door2" parent="Meshes/Doors" instance=ExtResource("7_aegs5")]
+[node name="Amargosa_Door2" parent="Meshes/Doors" instance=ExtResource("8_ifkeu")]
 transform = Transform3D(0.819152, 0, 0.573577, 0, 1, 0, -0.573577, 0, 0.819152, 14.7939, 0, 7.39826)
 
-[node name="Amargosa_Door3" parent="Meshes/Doors" instance=ExtResource("7_aegs5")]
+[node name="Amargosa_Door3" parent="Meshes/Doors" instance=ExtResource("8_ifkeu")]
 transform = Transform3D(0.976016, 0, -0.2177, 0, 1, 0, 0.2177, 0, 0.976016, 32.3886, -7.15256e-07, -11.3418)
 
-[node name="Amargosa_Door4" parent="Meshes/Doors" instance=ExtResource("7_aegs5")]
+[node name="Amargosa_Door4" parent="Meshes/Doors" instance=ExtResource("8_ifkeu")]
 transform = Transform3D(-0.0016406, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.0016406, 27.8648, 4.76837e-07, -14.899)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("5_i7241")]
+[node name="PlayerCharacter" parent="." instance=ExtResource("9_80tg7")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 6, 1, 0)
 
 [node name="Blocking_Colliders" type="StaticBody3D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://htmy5ix60gk7"]
 
 [ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="1_t7v4d"]
-[ext_resource type="Texture2D" uid="uid://b8iy6xkx2j3e4" path="res://Images/HDR/qwantani_afternoon_puresky_2k.exr" id="2_t7v4d"]
+[ext_resource type="Script" uid="uid://by1n0phxkydtb" path="res://Scenes/Levels/Scripts/Lightmap_GI.gd" id="2_hqt05"]
 [ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="3_baykk"]
 [ext_resource type="LightmapGIData" uid="uid://bwteqvl2tpsd8" path="res://Scenes/Levels/Testing/Lightmaps/FPS_Controller_Testing/FPS_Controller_Testing.lmbake" id="4_t7v4d"]
 [ext_resource type="Material" uid="uid://bu7tj6ka05jwg" path="res://addons/Arts/Materials/StructureMaterial1.tres" id="5_hc8u5"]
@@ -9,30 +9,28 @@
 [ext_resource type="Material" uid="uid://cgn7do4y8jc0o" path="res://addons/Arts/Materials/StructureMaterial2.tres" id="7_t7v4d"]
 [ext_resource type="PackedScene" uid="uid://kspjf3as235m" path="res://Models/Level_Props/Turbolifts/Ambargosa_Turbolift.tscn" id="8_hqt05"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_baykk"]
-panorama = ExtResource("2_t7v4d")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hf6q1"]
 
-[sub_resource type="Sky" id="Sky_14rcm"]
-sky_material = SubResource("PanoramaSkyMaterial_baykk")
+[sub_resource type="Sky" id="Sky_qvdmj"]
+sky_material = SubResource("ProceduralSkyMaterial_hf6q1")
 
-[sub_resource type="Environment" id="Environment_g04x4"]
+[sub_resource type="Environment" id="Environment_g7mx4"]
 background_mode = 2
-sky = SubResource("Sky_14rcm")
-ambient_light_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+sky = SubResource("Sky_qvdmj")
 tonemap_mode = 2
 ssr_max_steps = 24
 ssao_enabled = true
-ssil_radius = 1.06
+ssao_light_affect = 0.3
+ssao_ao_channel_affect = 0.3
+ssil_radius = 4.0
 ssil_intensity = 0.25
 ssil_sharpness = 0.44
 ssil_normal_rejection = 0.61
-sdfgi_enabled = true
 sdfgi_read_sky_light = false
 sdfgi_cascades = 5
 sdfgi_min_cell_size = 0.5
 sdfgi_y_scale = 2
 glow_enabled = true
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_length = 35.0
 volumetric_fog_detail_spread = 1.51572
@@ -89,29 +87,45 @@ data = PackedVector3Array(0, -0.1, 0, 0, -0.1, -2, 0, 0, -2, 2, 2, -2, 0, 0, -2,
 [node name="FPS_Controller_Testing" type="Node3D"]
 metadata/_edit_lock_ = true
 
-[node name="Lighting" type="Node3D" parent="."]
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3335, 7.32311, -2.30082)
-intensity = 0.34
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 3
+supersampling = true
+texel_scale = 0.5
+max_texture_size = 8192
+environment_custom_color = Color(0.23211971, 0.23211992, 0.23211977, 1)
+generate_probes_subdiv = 1
+light_data = ExtResource("4_t7v4d")
+script = ExtResource("2_hqt05")
+metadata/_edit_lock_ = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.772678, 5.2875, -2.1133347)
+intensity = 0.5
 blend_distance = 0.0
 max_distance = 0.2
-size = Vector3(100, 15, 100)
+size = Vector3(101.52875, 14, 102.09146)
 box_projection = true
 enable_shadows = true
-ambient_mode = 2
-ambient_color = Color(0.52312, 0.52312, 0.52312, 1)
+ambient_color = Color(0.051971, 0.051971, 0.051971, 1)
 script = ExtResource("1_t7v4d")
+metadata/_edit_lock_ = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
-transform = Transform3D(-0.955278, 0.256091, -0.147854, 0, 0.5, 0.866026, 0.295708, 0.827295, -0.477639, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.9552784, 0.25609073, -0.1478541, 0, 0.5000001, 0.8660253, 0.29570812, 0.82729524, -0.4776393, 0, 0, 0)
 light_energy = 1.3
 shadow_enabled = true
+shadow_opacity = 0.6
+metadata/_edit_lock_ = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
-environment = SubResource("Environment_g04x4")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g7mx4")
 script = ExtResource("3_baykk")
+
+[node name="Lighting" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Lights" type="Node3D" parent="Lighting"]
 metadata/_edit_lock_ = true
@@ -122,273 +136,263 @@ light_bake_mode = 1
 spot_range = 5.29085
 spot_angle = 88.5938
 
-[node name="LightmapGI" type="LightmapGI" parent="."]
-quality = 3
-supersampling = true
-directional = true
-shadowmask_mode = 2
-interior = true
-environment_mode = 3
-environment_custom_color = Color(0.393086, 0.393086, 0.393085, 1)
-light_data = ExtResource("4_t7v4d")
-
-[node name="Meshes" type="Node3D" parent="LightmapGI"]
+[node name="Meshes" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="Floor" type="StaticBody3D" parent="LightmapGI/Meshes"]
+[node name="Floor" type="StaticBody3D" parent="Meshes"]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_7x0gj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LightmapGI/Meshes/Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes/Floor"]
 mesh = SubResource("PlaneMesh_yp5m1")
 
-[node name="Bounds" type="StaticBody3D" parent="LightmapGI/Meshes"]
+[node name="Bounds" type="StaticBody3D" parent="Meshes"]
 metadata/_edit_lock_ = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Bounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.35, 3, 47)
 size = Vector3(99.9, 6, 1)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Bounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.35, 3, 47)
 shape = SubResource("ConcavePolygonShape3D_gowxn")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Meshes/Bounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.35, 3, -51.8)
 size = Vector3(99.9, 6, 1)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="Meshes/Bounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.35, 3, -51.8)
 shape = SubResource("ConcavePolygonShape3D_e6oy7")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Meshes/Bounds"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 77.75, 3, -2.4)
 size = Vector3(97.9, 6, 1)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D4" type="CollisionShape3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBakedCollisionShape3D4" type="CollisionShape3D" parent="Meshes/Bounds"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 77.75, 3, -2.4)
 shape = SubResource("ConcavePolygonShape3D_r0je8")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Meshes/Bounds"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.05, 3, -2.4)
 size = Vector3(97.9, 6, 1)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="LightmapGI/Meshes/Bounds"]
+[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="Meshes/Bounds"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.05, 3, -2.4)
 shape = SubResource("ConcavePolygonShape3D_wr8hy")
 
-[node name="Level_Blockout" type="Node3D" parent="LightmapGI/Meshes"]
+[node name="Level_Blockout" type="Node3D" parent="Meshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, 0)
 metadata/_edit_lock_ = true
 
-[node name="Cubes" type="Node3D" parent="LightmapGI/Meshes/Level_Blockout"]
+[node name="Cubes" type="Node3D" parent="Meshes/Level_Blockout"]
 
-[node name="Short" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes"]
+[node name="Short" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Short"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/Short"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Short"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/Short"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="2nd_Floor" type="Node3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes"]
+[node name="2nd_Floor" type="Node3D" parent="Meshes/Level_Blockout/Cubes"]
 
-[node name="Short_Floor" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 4.4, 6.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor2" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor2" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999999, 4.4, 6.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor2"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor2"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor2"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor2"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor3" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor3" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 4.4, 6.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor3"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor3"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor3"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor3"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor4" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor4" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 4.4, 8.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor4"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor4"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor4"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor4"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor5" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor5" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999999, 4.4, 8.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor5"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor5"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor5"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor5"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor6" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor6" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 4.4, 8.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor6"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor6"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor6"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor6"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor7" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor7" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 4.4, 4.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor7"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor7"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor7"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor7"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor8" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor8" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999999, 4.4, 4.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor8"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor8"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor8"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor8"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Short_Floor9" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor"]
+[node name="Short_Floor9" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 4.4, 4.2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor9"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor9"]
 size = Vector3(2, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor9"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/2nd_Floor/Short_Floor9"]
 shape = SubResource("ConcavePolygonShape3D_6qflb")
 
-[node name="Mid" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes"]
+[node name="Mid" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -6)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Mid"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 size = Vector3(2, 1.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Mid"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 shape = SubResource("ConcavePolygonShape3D_k55w3")
 
-[node name="Tall" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes"]
+[node name="Tall" type="StaticBody3D" parent="Meshes/Level_Blockout/Cubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -9)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Tall"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Cubes/Tall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 size = Vector3(2, 2.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Cubes/Tall"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Cubes/Tall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 shape = SubResource("ConcavePolygonShape3D_h1o8f")
 
-[node name="Stairs" type="Node3D" parent="LightmapGI/Meshes/Level_Blockout"]
+[node name="Stairs" type="Node3D" parent="Meshes/Level_Blockout"]
 
-[node name="Stair_Steps" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs"]
+[node name="Stair_Steps" type="StaticBody3D" parent="Meshes/Level_Blockout/Stairs"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs/Stair_Steps"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes/Level_Blockout/Stairs/Stair_Steps"]
 use_collision = true
 size = Vector3(1, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs/Stair_Steps"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Stairs/Stair_Steps"]
 shape = SubResource("ConcavePolygonShape3D_t7v4d")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs/Stair_Steps"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Meshes/Level_Blockout/Stairs/Stair_Steps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, 0)
 use_collision = true
 size = Vector3(1, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs/Stair_Steps"]
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="Meshes/Level_Blockout/Stairs/Stair_Steps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, 0)
 shape = SubResource("ConcavePolygonShape3D_hc8u5")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs/Stair_Steps"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Meshes/Level_Blockout/Stairs/Stair_Steps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.2, 0)
 use_collision = true
 size = Vector3(1, 0.1, 2)
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Stairs/Stair_Steps"]
+[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="Meshes/Level_Blockout/Stairs/Stair_Steps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.2, 0)
 shape = SubResource("ConcavePolygonShape3D_baykk")
 
-[node name="Ramps" type="Node3D" parent="LightmapGI/Meshes/Level_Blockout"]
+[node name="Ramps" type="Node3D" parent="Meshes/Level_Blockout"]
 
-[node name="Ramp_Short" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps"]
+[node name="Ramp_Short" type="StaticBody3D" parent="Meshes/Level_Blockout/Ramps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps/Ramp_Short"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Meshes/Level_Blockout/Ramps/Ramp_Short"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
 use_collision = true
 polygon = PackedVector2Array(0, -0.1, 0, 0, 2, 0.3, 2, -0.1)
 depth = 2.0
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps/Ramp_Short"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Ramps/Ramp_Short"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
 shape = SubResource("ConcavePolygonShape3D_14rcm")
 
-[node name="Ramp_Mid" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps"]
+[node name="Ramp_Mid" type="StaticBody3D" parent="Meshes/Level_Blockout/Ramps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps/Ramp_Mid"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Meshes/Level_Blockout/Ramps/Ramp_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
 use_collision = true
 polygon = PackedVector2Array(0, -0.1, 0, 0, 2, 1, 2, -0.1)
 depth = 2.0
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps/Ramp_Mid"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Ramps/Ramp_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
 shape = SubResource("ConcavePolygonShape3D_g04x4")
 
-[node name="Ramp_Steep" type="StaticBody3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps"]
+[node name="Ramp_Steep" type="StaticBody3D" parent="Meshes/Level_Blockout/Ramps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps/Ramp_Steep"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Meshes/Level_Blockout/Ramps/Ramp_Steep"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
 use_collision = true
 polygon = PackedVector2Array(0, -0.1, 0, 0, 2, 2, 2, -0.1)
 depth = 2.0
 material = ExtResource("7_t7v4d")
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="LightmapGI/Meshes/Level_Blockout/Ramps/Ramp_Steep"]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Meshes/Level_Blockout/Ramps/Ramp_Steep"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
 shape = SubResource("ConcavePolygonShape3D_yp5m1")
 

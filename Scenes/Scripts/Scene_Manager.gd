@@ -7,8 +7,8 @@ const scene_list := {
 	"blank": preload("res://Scenes/Blank.tscn"),
 
 	## Scenes
-	"amargosa_station": preload("res://Scenes/Levels/Ambargosa_Station.tscn"),
-	"fps_controller_testing": preload("res://Scenes/Levels/Testing/FPS_Controller_Testing.tscn"),
+	"day": preload("res://Scenes/Levels/Dungeon_Test_Day.tscn"),
+	"night": preload("res://Scenes/Levels/Dungeon_Test_Night.tscn"),
 }
 
 var next_scene: String = ""

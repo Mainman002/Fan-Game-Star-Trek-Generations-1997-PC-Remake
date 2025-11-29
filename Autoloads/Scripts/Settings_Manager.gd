@@ -12,6 +12,9 @@ const default_settings:Dictionary = {
 	## Rendering
 	"quality_preset": 2,
 
+	## Lightmap
+	"lightmap_gi": true,
+
 	## Reflection Probe
 	"reflection_probe": true,
 	"reflection_probe_realtime": false,
@@ -187,6 +190,7 @@ const presets:Array = [
 
 var world_environment:WorldEnvironment
 var reflection_probe:ReflectionProbe
+var lightmap_gi:LightmapGI
 
 var ui_buttons:Array = []
 
@@ -234,30 +238,39 @@ func _free_ui_items() -> void:
 
 
 func _change_graphics_preset() -> void:
-	match settings["quality_preset"]:
-		0:
-			settings["reflection_probe"] = false
-			settings["reflection_probe_realtime"] = false
-		1:
-			settings["reflection_probe"] = true
-			settings["reflection_probe_realtime"] = false
-		2:
-			settings["reflection_probe"] = true
-			settings["reflection_probe_realtime"] = false
-		3:
-			settings["reflection_probe"] = true
-			settings["reflection_probe_realtime"] = false
-		4:
-			settings["reflection_probe"] = true
-			settings["reflection_probe_realtime"] = false
-		5:
-			settings["reflection_probe"] = true
-			settings["reflection_probe_realtime"] = true
-		6:
-			settings["reflection_probe"] = true
-			settings["reflection_probe_realtime"] = true
+	return
 
-	set_preset( settings["quality_preset"] )
+	#match settings["quality_preset"]:
+		#0:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = false
+		#1:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = false
+		#2:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = false
+		#3:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = false
+		#4:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = false
+		#5:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = true
+		#6:
+			#settings["lightmap_gi"] = true
+			#settings["reflection_probe"] = true
+			#settings["reflection_probe_realtime"] = true
+#
+	#set_preset( settings["quality_preset"] )
 
 
 func _refresh_settings() -> void:
@@ -302,25 +315,27 @@ func _refresh_settings() -> void:
 
 	Engine.max_fps = settings["fps"]
 
-	#if world_environment:
+	if world_environment:
 #
 		### SDFGI
-		#world_environment.environment.set( "sdfgi_enabled", settings["sdfgi_enabled"] )
-		#world_environment.environment.set( "sdfgi_use_occlusion", settings["sdfgi_use_occlusion"] )
-		#world_environment.environment.set( "sdfgi_read_sky_light", settings["sdfgi_read_sky_light"] )
+		world_environment.environment.set( "sdfgi_enabled", settings["sdfgi_enabled"] )
+		world_environment.environment.set( "sdfgi_use_occlusion", settings["sdfgi_use_occlusion"] )
+		world_environment.environment.set( "sdfgi_read_sky_light", settings["sdfgi_read_sky_light"] )
 #
 		### SSR
-		#world_environment.environment.set( "ssr_enabled", settings["ssr_enabled"] )
+		world_environment.environment.set( "ssr_enabled", settings["ssr_enabled"] )
 #
 		### SSIL
-		#world_environment.environment.set( "ssil_enabled", settings["ssil_enabled"] )
+		world_environment.environment.set( "ssil_enabled", settings["ssil_enabled"] )
 #
 		### SSAO
-		#world_environment.environment.set( "ssao_enabled", settings["ssao_enabled"] )
+		world_environment.environment.set( "ssao_enabled", settings["ssao_enabled"] )
 #
 		### Glow
-		#world_environment.environment.set( "glow_enabled", settings["glow_enabled"] )
-		##world_environment.set_preset( settings["quality_preset"] )
+		world_environment.environment.set( "glow_enabled", settings["glow_enabled"] )
+
+	if lightmap_gi:
+		lightmap_gi.visible = settings["lightmap_gi"]
 
 	if reflection_probe:
 		reflection_probe.visible = settings["reflection_probe"]

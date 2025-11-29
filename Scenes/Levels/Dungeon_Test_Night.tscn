@@ -1,0 +1,576 @@
+[gd_scene load_steps=26 format=3 uid="uid://dmcr02wb450fq"]
+
+[ext_resource type="LightmapGIData" uid="uid://b871gopoddx6h" path="res://Scenes/Levels/Lightmaps/Dungeon_Test_Night/Dungeon_Test_Night.lmbake" id="1_ivpwk"]
+[ext_resource type="Script" uid="uid://by1n0phxkydtb" path="res://Scenes/Levels/Scripts/Lightmap_GI.gd" id="2_ktap7"]
+[ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="3_hnjw2"]
+[ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="4_ra4w7"]
+[ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="5_8ekr0"]
+[ext_resource type="Material" uid="uid://bu7tj6ka05jwg" path="res://addons/Arts/Materials/StructureMaterial1.tres" id="6_gv8wt"]
+[ext_resource type="PackedScene" uid="uid://bgaob1xuc5yty" path="res://Models/Modular_Dungeon/glb/Floors/Floor_Tile.glb" id="7_tyvd1"]
+[ext_resource type="PackedScene" uid="uid://bojglr0fru8y6" path="res://Models/Modular_Dungeon/glb/Walls/Corner.glb" id="8_2pgkg"]
+[ext_resource type="PackedScene" uid="uid://8g24tcr3td83" path="res://Models/Modular_Dungeon/glb/Walls/Wall.glb" id="9_24uvb"]
+[ext_resource type="PackedScene" uid="uid://cqlop4r0oglby" path="res://Models/Modular_Dungeon/glb/Walls/Doorway.glb" id="10_yr28g"]
+[ext_resource type="PackedScene" uid="uid://bc4nm14ts7fep" path="res://Models/Modular_Dungeon/glb/Props/Bookshelf.glb" id="11_17yuu"]
+[ext_resource type="PackedScene" uid="uid://ckn6nprpk0eo" path="res://Models/Modular_Dungeon/glb/Props/Barrel.glb" id="12_fc01d"]
+[ext_resource type="PackedScene" uid="uid://tdrxnh0dqq88" path="res://Models/Modular_Dungeon/glb/Props/Chest.glb" id="13_ag2ty"]
+[ext_resource type="PackedScene" uid="uid://by8kfp6cccx3t" path="res://Models/Modular_Dungeon/glb/Floors/Floor_Single_Tile.glb" id="14_bulpp"]
+[ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/Scripts/UI/HUDScript.gd" id="15_2pgkg"]
+[ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/Arts/Fonts/Ticketing.ttf" id="16_24uvb"]
+[ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="17_yr28g"]
+[ext_resource type="PackedScene" uid="uid://cjr7gl4qq1oxc" path="res://Objects/Menus/Pause_Menu.tscn" id="18_17yuu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t2hu2"]
+panorama = ExtResource("4_ra4w7")
+
+[sub_resource type="Sky" id="Sky_quktk"]
+sky_material = SubResource("PanoramaSkyMaterial_t2hu2")
+
+[sub_resource type="Environment" id="Environment_kdgre"]
+background_mode = 2
+sky = SubResource("Sky_quktk")
+tonemap_mode = 2
+ssr_max_steps = 24
+ssao_enabled = true
+ssao_light_affect = 0.3
+ssao_ao_channel_affect = 0.3
+ssil_radius = 4.0
+ssil_intensity = 0.25
+ssil_sharpness = 0.44
+ssil_normal_rejection = 0.61
+sdfgi_read_sky_light = false
+sdfgi_cascades = 5
+sdfgi_min_cell_size = 0.5
+sdfgi_y_scale = 2
+glow_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_length = 35.0
+volumetric_fog_detail_spread = 1.51572
+volumetric_fog_sky_affect = 0.013
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt4p6"]
+size = Vector3(300, 0.5, 300)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_npj68"]
+lightmap_size_hint = Vector2i(1502, 1502)
+material = ExtResource("6_gv8wt")
+add_uv2 = true
+size = Vector2(300, 300)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fc01d"]
+line_spacing = 5.0
+font = ExtResource("16_24uvb")
+font_size = 30
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag2ty"]
+line_spacing = 5.0
+font = ExtResource("16_24uvb")
+font_size = 30
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Dungeon_Test_Night" type="Node3D"]
+metadata/_edit_lock_ = true
+
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 3
+supersampling = true
+texel_scale = 0.5
+max_texture_size = 8192
+environment_mode = 3
+environment_custom_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+generate_probes_subdiv = 1
+light_data = ExtResource("1_ivpwk")
+script = ExtResource("2_ktap7")
+metadata/_edit_lock_ = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3335, 0.7874999, 1.6991796)
+intensity = 0.4
+blend_distance = 0.0
+max_distance = 0.2
+size = Vector3(35, 23, 63)
+box_projection = true
+enable_shadows = true
+ambient_mode = 2
+ambient_color = Color(0.3328807, 0.33288068, 0.33288068, 1)
+script = ExtResource("3_hnjw2")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9323234, 0.33783123, -0.12900515, 0, 0.35673794, 0.934204, 0.36162442, -0.87098086, 0.33259517, 0, 0, 0)
+light_energy = 1.3
+shadow_enabled = true
+shadow_opacity = 0.81
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kdgre")
+script = ExtResource("5_8ekr0")
+
+[node name="Lighting" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Lights" type="Node3D" parent="Lighting"]
+metadata/_edit_lock_ = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, -3.59989e-21, -4.37114e-08, 10.0554, 4.38934, 0)
+distance_fade_enabled = true
+spot_range = 5.464
+spot_attenuation = 0.52
+spot_angle = 31.9
+spot_angle_attenuation = 0.34151
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, -3.59989e-21, -4.37114e-08, 36.3166, 3.86671, 9.22688)
+light_color = Color(0.565492, 0.537573, 0.468964, 1)
+light_energy = 0.02
+light_indirect_energy = 0.02
+light_volumetric_fog_energy = 0.02
+light_bake_mode = 1
+distance_fade_enabled = true
+spot_range = 5.65149
+spot_attenuation = 0.52
+spot_angle = 89.99
+spot_angle_attenuation = 0.34151
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, -3.59989e-21, -4.37114e-08, -0.227548, 3.96167, 0)
+distance_fade_enabled = true
+spot_range = 5.78208
+spot_attenuation = 0.52
+spot_angle = 79.7497
+spot_angle_attenuation = 0.34151
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, -3.59989e-21, -4.37114e-08, 7.7327, 3.96167, 0)
+distance_fade_enabled = true
+spot_range = 4.46585
+spot_attenuation = 0.52
+spot_angle = 83.9323
+spot_angle_attenuation = 0.34151
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, -3.59989e-21, -4.37114e-08, 27.6087, 7.74899, -0.0370326)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 0.25
+distance_fade_enabled = true
+spot_range = 9.20475
+spot_attenuation = 0.52
+spot_angle = 87.0745
+spot_angle_attenuation = 0.34151
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lighting/Lights"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, -3.59989e-21, -4.37114e-08, 27.6087, 4.05971, -0.0370326)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 0.25
+distance_fade_enabled = true
+spot_range = 9.20475
+spot_attenuation = 0.52
+spot_angle = 87.0745
+spot_angle_attenuation = 0.34151
+
+[node name="Meshes" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody3D" parent="Meshes"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_rt4p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes/Floor"]
+visible = false
+mesh = SubResource("PlaneMesh_npj68")
+
+[node name="Dungeon" type="Node3D" parent="Meshes"]
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="Node3D" parent="Meshes/Dungeon"]
+metadata/_edit_lock_ = true
+
+[node name="Floor_Tile" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+
+[node name="Floor_Tile2" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Floor_Tile3" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="Floor_Tile5" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="Floor_Tile6" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="Floor_Tile4" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Floor_Tile7" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="Floor_Tile8" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
+[node name="Floor_Tile9" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
+
+[node name="Floor_Tile10" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
+
+[node name="Floor_Tile15" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -5, 20)
+
+[node name="Floor_Tile16" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -5, -10)
+
+[node name="Floor_Tile11" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Floor_Tile12" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="Floor_Tile13" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20)
+
+[node name="Floor_Tile14" parent="Meshes/Dungeon/Floor" instance=ExtResource("7_tyvd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+
+[node name="Walls" type="Node3D" parent="Meshes/Dungeon"]
+metadata/_edit_lock_ = true
+
+[node name="Corners" type="Node3D" parent="Meshes/Dungeon/Walls"]
+metadata/_edit_lock_ = true
+
+[node name="Corner" parent="Meshes/Dungeon/Walls/Corners" instance=ExtResource("8_2pgkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 20)
+
+[node name="Corner2" parent="Meshes/Dungeon/Walls/Corners" instance=ExtResource("8_2pgkg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14, 0, -15)
+
+[node name="Corner5" parent="Meshes/Dungeon/Walls/Corners" instance=ExtResource("8_2pgkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, 22)
+
+[node name="Corner6" parent="Meshes/Dungeon/Walls/Corners" instance=ExtResource("8_2pgkg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 5, -17)
+
+[node name="Straits" type="Node3D" parent="Meshes/Dungeon/Walls"]
+metadata/_edit_lock_ = true
+
+[node name="Wall2" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14, 0, 5)
+
+[node name="Wall3" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14, 0, -5)
+
+[node name="Wall6" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 5, 5)
+
+[node name="Wall7" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 5, -6)
+
+[node name="Wall8" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 5, -17)
+
+[node name="Wall9" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 5, -17)
+
+[node name="Wall12" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -15)
+
+[node name="Wall10" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -5, 5, 22)
+
+[node name="Wall13" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -5, 0, 20)
+
+[node name="Wall11" parent="Meshes/Dungeon/Walls/Straits" instance=ExtResource("9_24uvb")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 5, 5, 22)
+
+[node name="Doorways" type="Node3D" parent="Meshes/Dungeon/Walls"]
+metadata/_edit_lock_ = true
+
+[node name="Doorway2" parent="Meshes/Dungeon/Walls/Doorways" instance=ExtResource("10_yr28g")]
+transform = Transform3D(-1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1, 0, 0, -15)
+
+[node name="Doorway3" parent="Meshes/Dungeon/Walls/Doorways" instance=ExtResource("10_yr28g")]
+transform = Transform3D(1, 0, -1.172251e-07, 0, 1, 0, 1.172251e-07, 0, 1, 4, 0, 20)
+
+[node name="Props" type="Node3D" parent="Meshes/Dungeon"]
+metadata/_edit_lock_ = true
+
+[node name="Bookshelf2" parent="Meshes/Dungeon/Props" instance=ExtResource("11_17yuu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.764221, 0, -3.1464903)
+
+[node name="Bookshelf3" parent="Meshes/Dungeon/Props" instance=ExtResource("11_17yuu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.764221, 0, 1.8535097)
+
+[node name="Barrel2" parent="Meshes/Dungeon/Props" instance=ExtResource("12_fc01d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.683865, 0.016813517, -11.110114)
+
+[node name="Barrel4" parent="Meshes/Dungeon/Props" instance=ExtResource("12_fc01d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.951565, 0.016813517, -10.05974)
+
+[node name="Barrel5" parent="Meshes/Dungeon/Props" instance=ExtResource("12_fc01d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.934423, 0.016813517, -10.66407)
+
+[node name="Barrel6" parent="Meshes/Dungeon/Props" instance=ExtResource("12_fc01d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7989483, 0.016813517, 7.319866)
+
+[node name="Barrel7" parent="Meshes/Dungeon/Props" instance=ExtResource("12_fc01d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.339956, 0.016813517, 15.538871)
+
+[node name="Barrel3" parent="Meshes/Dungeon/Props" instance=ExtResource("12_fc01d")]
+transform = Transform3D(0.5420896, 0.8403207, -3.6731585e-08, 0, -4.371139e-08, -1, -0.8403207, 0.5420896, -2.3695488e-08, 9.179817, 1.0168135, -9.1966095)
+
+[node name="Chest2" parent="Meshes/Dungeon/Props" instance=ExtResource("13_ag2ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7712584, 0.050602198, 16.616304)
+
+[node name="Floor_Single_Tile2" parent="Meshes/Dungeon/Props" instance=ExtResource("14_bulpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.270824, 4.994909, 11.553961)
+
+[node name="Floor_Single_Tile3" parent="Meshes/Dungeon/Props" instance=ExtResource("14_bulpp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.018446, 2.394909, -6.5649242)
+
+[node name="Floor_Single_Tile4" parent="Meshes/Dungeon/Props" instance=ExtResource("14_bulpp")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.870024, 3.594909, 6.597069)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.7855173e-08, 0.5, -0.8660254, 2.1855694e-08, 0.8660254, 0.5, 1, 0, -4.371139e-08, -59.4846, 34.73588, 2.5248184)
+current = true
+fov = 30.0
+
+[node name="HUD" type="CanvasLayer" parent="Camera3D"]
+unique_name_in_owner = true
+process_mode = 3
+layer = 8
+follow_viewport_enabled = true
+script = ExtResource("15_2pgkg")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerCharacterInfos" type="HBoxContainer" parent="Camera3D/HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/HUD/PlayerCharacterInfos"]
+layout_mode = 2
+
+[node name="CurrStateLabel" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Current state :"
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="CurrDirectionLabel" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Current direction :"
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="DesiredMoveSpeedLabel" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Desired move speed :"
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="VelocityLabel" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Velocity :"
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="NbJumpsInAirAllowedLabel" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Nb jumps in air allowed : "
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera3D/HUD/PlayerCharacterInfos"]
+layout_mode = 2
+
+[node name="CurrStateLabelText" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="CurrDirectionLabelText" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="DesiredMoveSpeedLabelText" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="VelocityLabelText" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="NbJumpsInAirAllowedLabelText" type="Label" parent="Camera3D/HUD/PlayerCharacterInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="WeaponsInfos" type="HBoxContainer" parent="Camera3D/HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/HUD/WeaponsInfos"]
+layout_mode = 2
+
+[node name="WeaponStackLabel" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Weapon stack :"
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="WeaponNameLabel" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Weapon name :"
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="TotalAmmoInMagLabel" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Total ammo in mag : "
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="TotalAmmoLabel" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Total ammo : "
+label_settings = SubResource("LabelSettings_fc01d")
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera3D/HUD/WeaponsInfos"]
+layout_mode = 2
+
+[node name="WeaponStackLabelText" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="WeaponNameLabelText" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="TotalAmmoInMagLabelText" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="TotalAmmoLabelText" type="Label" parent="Camera3D/HUD/WeaponsInfos/VBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = SubResource("LabelSettings_ag2ty")
+vertical_alignment = 1
+
+[node name="Crosshair" type="TextureRect" parent="Camera3D/HUD"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("17_yr28g")
+expand_mode = 1
+
+[node name="Menus" type="CanvasLayer" parent="Camera3D"]
+process_mode = 3
+layer = 9
+follow_viewport_enabled = true
+
+[node name="Pause_Menu" parent="Camera3D/Menus" instance=ExtResource("18_17yuu")]
+visible = false

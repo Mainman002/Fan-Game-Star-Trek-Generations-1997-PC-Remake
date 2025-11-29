@@ -42,8 +42,8 @@ var scene_list:Array = [
 	"blank",
 
 	## Levels
-	"amargosa_station",
-	"fps_controller_testing",
+	"day",
+	"night",
 ]
 var console_history_index:int = 0
 var was_paused_already:bool = false
