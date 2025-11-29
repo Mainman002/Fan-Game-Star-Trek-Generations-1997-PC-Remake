@@ -27,6 +27,6 @@ func show_menu() -> void:
 
 func hide_menu() -> void:
 	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	tab_container.current_tab = 0
 	visible = false

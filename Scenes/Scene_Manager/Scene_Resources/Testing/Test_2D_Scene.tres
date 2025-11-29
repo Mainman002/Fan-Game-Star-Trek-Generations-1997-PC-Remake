@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SceneEntry" load_steps=2 format=3 uid="uid://bqpu07eg204ay"]
+
+[ext_resource type="Script" uid="uid://dg48882oun758" path="res://Scenes/Scene_Manager/Scripts/Scene_Entry.gd" id="1_pk7vf"]
+
+[resource]
+script = ExtResource("1_pk7vf")
+name = "test_2d_scene"
+path = "uid://dt4odc6mgjqi5"
+metadata/_custom_type_script = "uid://dg48882oun758"

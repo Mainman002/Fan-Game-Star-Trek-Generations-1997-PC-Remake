@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://bwggrf7sbmkcv"]
+[gd_scene load_steps=89 format=4 uid="uid://bwggrf7sbmkcv"]
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addons/PlayerCharacter/Scripts/StateMachine/PlayerCharacterScript.gd" id="1_834nb"]
 [ext_resource type="Script" uid="uid://sca7ypsol83f" path="res://addons/PlayerCharacter/Scripts/StateMachine/StateMachineScript.gd" id="2_834nb"]
@@ -13,13 +13,11 @@
 [ext_resource type="Script" uid="uid://bhoqhv7escpyx" path="res://addons/PlayerCharacter/Scripts/StateMachine/CrouchStateScript.gd" id="8_2aixa"]
 [ext_resource type="Script" uid="uid://d2jpda3mq5jpa" path="res://addons/Weapons/Scripts/WeaponManagerScript.gd" id="13_834nb"]
 [ext_resource type="Script" uid="uid://bnhfyt5sl8jcd" path="res://addons/Weapons/Scripts/WeaponResourcesScript.gd" id="14_ca0qr"]
-[ext_resource type="Resource" uid="uid://bhqkxejvxhl0u" path="res://addons/Weapons/Resources/PhaserWeaponResources.tres" id="14_mdlbe"]
 [ext_resource type="Resource" uid="uid://j42d6dl8qkaj" path="res://addons/Weapons/Resources/PistolWeaponResources.tres" id="15_1lhsp"]
 [ext_resource type="Resource" uid="uid://cbxau8flaoifg" path="res://addons/Weapons/Resources/AssaultRifleWeaponResources.tres" id="16_tyw5b"]
 [ext_resource type="Resource" uid="uid://bgb8htvjywlwm" path="res://addons/Weapons/Resources/ShotgunWeaponResources.tres" id="17_bj161"]
 [ext_resource type="Resource" uid="uid://b63lj0c7tash0" path="res://addons/Weapons/Resources/SniperRifleWeaponResources.tres" id="18_bky4p"]
 [ext_resource type="Resource" uid="uid://dn71dyben68oe" path="res://addons/Weapons/Resources/RocketLauncherWeaponResources.tres" id="19_m6yr4"]
-[ext_resource type="PackedScene" uid="uid://die5f02jy3dyt" path="res://Models/Weapons/Type2_Phaser/Type2_Phaser.glb" id="21_vqiv6"]
 [ext_resource type="Script" uid="uid://bcka80usfl4am" path="res://addons/Weapons/Scripts/WeaponSlotScript.gd" id="24_tyw5b"]
 [ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="28_msp70"]
 [ext_resource type="Texture2D" uid="uid://dq6lmmv7chko6" path="res://addons/Addon Assets/Weapon Textures/atlass_1_diffuse.png" id="32_1lhsp"]
@@ -351,42 +349,6 @@ tracks/2/keys = {
 resource_name = "EquipAnimPhaser"
 length = 0.2
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.335805, -0.150842), Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0.872665), Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_kdof8"]
 resource_name = "EquipAnimPistol"
@@ -554,42 +516,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_0qb1j"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.0750492, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_touoi"]
 resource_name = "ReloadAnimAssaultRifle"
@@ -636,42 +562,6 @@ tracks/2/keys = {
 resource_name = "ReloadAnimPhaser"
 length = 0.4
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.16, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842), Vector3(0.205868, -0.176991, -0.150842), Vector3(0.216, -0.204, -0.161), Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0.115192, 3.53953, 0), Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_do0ij"]
 resource_name = "ReloadAnimPistol"
@@ -894,42 +784,6 @@ tracks/2/keys = {
 resource_name = "ShootAnimPhaser"
 length = 0.4
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.09, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842), Vector3(0.2, -0.161, -0.17), Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.09, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0.0453786, 3.08225, 0), Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_msp70"]
 resource_name = "ShootAnimPistol"
@@ -1152,42 +1006,6 @@ tracks/2/keys = {
 resource_name = "UnequipAnimPhaser"
 length = 0.2
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842), Vector3(0.20047, -0.259836, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0.872665)]
-}
 
 [sub_resource type="Animation" id="Animation_43gd7"]
 resource_name = "UnequipAnimPistol"
@@ -1495,8 +1313,8 @@ far = 1000.0
 [node name="WeaponManager" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera" node_paths=PackedStringArray("startWeapons")]
 unique_name_in_owner = true
 script = ExtResource("13_834nb")
-weaponResources = Array[ExtResource("14_ca0qr")]([ExtResource("14_mdlbe"), ExtResource("15_1lhsp"), ExtResource("16_tyw5b"), ExtResource("17_bj161"), ExtResource("18_bky4p"), ExtResource("19_m6yr4")])
-startWeapons = [NodePath("WeaponContainer/Phaser"), NodePath("WeaponContainer/Pistol"), NodePath("WeaponContainer/AssaultRifle"), NodePath("WeaponContainer/Shotgun"), NodePath("WeaponContainer/SniperRifle"), NodePath("WeaponContainer/RocketLauncher")]
+weaponResources = Array[ExtResource("14_ca0qr")]([ExtResource("15_1lhsp"), ExtResource("16_tyw5b"), ExtResource("17_bj161"), ExtResource("18_bky4p"), ExtResource("19_m6yr4")])
+startWeapons = [NodePath("WeaponContainer/Pistol"), NodePath("WeaponContainer/AssaultRifle"), NodePath("WeaponContainer/Shotgun"), NodePath("WeaponContainer/SniperRifle"), NodePath("WeaponContainer/RocketLauncher")]
 shoot_action = "shoot"
 reload_action = "reload"
 weapon_wheel_up_action = "weaponWheelUp"
@@ -1505,37 +1323,6 @@ weapon_wheel_down_action = "weaponWheelDown"
 [node name="WeaponContainer" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67602e-09, -0.0115472, -0.038343)
-
-[node name="Phaser" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
-transform = Transform3D(0.3, 0, 0, 0, 0.299156, -0.0187447, 0, 0.0224937, 0.249296, 0.20047, -0.153444, -0.150842)
-script = ExtResource("24_tyw5b")
-model = NodePath(".")
-weaponId = 1
-attackPoint = NodePath("PistolModel/PistolAttackPoint")
-muzzleFlashSpawner = NodePath("PistolModel/PistolMuzzleFlashSpawner")
-
-[node name="PistolModel" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser"]
-
-[node name="Type2_Phaser" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel" instance=ExtResource("21_vqiv6")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.0579123, 0.0895615, 0.331204)
-
-[node name="Skeleton3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel/Type2_Phaser/Armature" index="1"]
-bones/1/position = Vector3(-0.275583, 0.589879, 8.48346)
-bones/3/rotation = Quaternion(-0.0948601, 0.320866, 0.0580982, 0.94057)
-bones/4/rotation = Quaternion(-0.279168, 0.0924711, -0.0236736, 0.955486)
-bones/5/rotation = Quaternion(-0.0949241, 0.0151927, 0.152556, 0.983608)
-bones/6/rotation = Quaternion(0.294065, 0.0710131, 0.201691, 0.93156)
-bones/7/rotation = Quaternion(-0.106715, 0.00496798, 0.0998616, 0.98925)
-bones/8/rotation = Quaternion(-0.31253, 0.00369644, 0.0600615, 0.948)
-
-[node name="AnimationPlayer" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel/Type2_Phaser" index="1"]
-autoplay = "ArmatureAction"
-
-[node name="PistolAttackPoint" type="Marker3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 1.07143e-15, 1.42109e-14, -7.45058e-09, 1, -1.78814e-07, 0.0959705, 0.658884)
-
-[node name="PistolMuzzleFlashSpawner" type="Marker3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel"]
-transform = Transform3D(1, 1.77636e-15, -4.47642e-13, 0, 1, 7.45058e-09, 2.84217e-14, -2.23518e-08, 1, -2.38419e-07, -0.067999, 0.734684)
 
 [node name="Pistol" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
 transform = Transform3D(-0.3, 0, 6.33795e-07, 0, 0.3, 0, -7.60555e-07, 0, -0.25, 0.20047, -0.153444, -0.150842)
@@ -1955,5 +1742,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("28_msp70")
 expand_mode = 1
-
-[editable path="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel/Type2_Phaser"]

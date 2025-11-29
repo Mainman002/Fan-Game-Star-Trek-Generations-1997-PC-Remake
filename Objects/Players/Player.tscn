@@ -1,8 +1,7 @@
-[gd_scene load_steps=84 format=4 uid="uid://dqo1ja3hpw00s"]
+[gd_scene load_steps=82 format=4 uid="uid://dqo1ja3hpw00s"]
 
 [ext_resource type="Script" uid="uid://b1a06ytr2piwx" path="res://Objects/Players/Scripts/Player.gd" id="1_u8pww"]
 [ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="2_ayf8u"]
-[ext_resource type="PackedScene" uid="uid://die5f02jy3dyt" path="res://Models/Weapons/Type2_Phaser/Type2_Phaser.glb" id="2_ecmq7"]
 [ext_resource type="Script" uid="uid://cnpa03x4ajc8b" path="res://addons/PlayerCharacter/Scripts/Misc/LinkComponentScript.gd" id="2_x5f5e"]
 [ext_resource type="Script" uid="uid://ba0b0ekmy1qub" path="res://addons/PlayerCharacter/Scripts/Camera/ViewportCameraScript.gd" id="3_4bf8a"]
 [ext_resource type="Script" uid="uid://k7djd8c1xge2" path="res://addons/Weapons/Scripts/Camera/CameraRecoilHolderScript.gd" id="3_6mg0u"]
@@ -13,7 +12,6 @@
 [ext_resource type="Script" uid="uid://b45mr122adhlv" path="res://addons/Weapons/Scripts/Ammunition/AmmunitionManagerScript.gd" id="5_eogmd"]
 [ext_resource type="Script" uid="uid://bnhfyt5sl8jcd" path="res://addons/Weapons/Scripts/WeaponResourcesScript.gd" id="6_1en7l"]
 [ext_resource type="Script" uid="uid://bc64rms0gin6g" path="res://addons/Weapons/Scripts/AnimationManagerScript.gd" id="6_10236"]
-[ext_resource type="Resource" uid="uid://bhqkxejvxhl0u" path="res://addons/Weapons/Resources/PhaserWeaponResources.tres" id="7_iq8jn"]
 [ext_resource type="Script" uid="uid://bcka80usfl4am" path="res://addons/Weapons/Scripts/WeaponSlotScript.gd" id="7_yryjw"]
 [ext_resource type="Resource" uid="uid://j42d6dl8qkaj" path="res://addons/Weapons/Resources/PistolWeaponResources.tres" id="8_40ahu"]
 [ext_resource type="Resource" uid="uid://cbxau8flaoifg" path="res://addons/Weapons/Resources/AssaultRifleWeaponResources.tres" id="9_77wcw"]
@@ -335,42 +333,6 @@ tracks/2/keys = {
 resource_name = "EquipAnimPhaser"
 length = 0.2
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.335805, -0.150842), Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0.872665), Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_kdof8"]
 resource_name = "EquipAnimPistol"
@@ -538,42 +500,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_0qb1j"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.0750492, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_touoi"]
 resource_name = "ReloadAnimAssaultRifle"
@@ -620,42 +546,6 @@ tracks/2/keys = {
 resource_name = "ReloadAnimPhaser"
 length = 0.4
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.16, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842), Vector3(0.205868, -0.176991, -0.150842), Vector3(0.216, -0.204, -0.161), Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0.115192, 3.53953, 0), Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_do0ij"]
 resource_name = "ReloadAnimPistol"
@@ -878,42 +768,6 @@ tracks/2/keys = {
 resource_name = "ShootAnimPhaser"
 length = 0.4
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.09, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842), Vector3(0.2, -0.161, -0.17), Vector3(0.20047, -0.153444, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.09, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0.0453786, 3.08225, 0), Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_msp70"]
 resource_name = "ShootAnimPistol"
@@ -1136,42 +990,6 @@ tracks/2/keys = {
 resource_name = "UnequipAnimPhaser"
 length = 0.2
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponContainer/Phaser:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponContainer/Phaser:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.20047, -0.153444, -0.150842), Vector3(0.20047, -0.259836, -0.150842)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponContainer/Phaser:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0.872665)]
-}
 
 [sub_resource type="Animation" id="Animation_43gd7"]
 resource_name = "UnequipAnimPistol"
@@ -1432,8 +1250,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 [node name="WeaponManager" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera" node_paths=PackedStringArray("startWeapons")]
 unique_name_in_owner = true
 script = ExtResource("5_a7v0r")
-weaponResources = Array[ExtResource("6_1en7l")]([ExtResource("7_iq8jn"), ExtResource("8_40ahu"), ExtResource("9_77wcw"), ExtResource("10_ncscv"), ExtResource("11_rqxvl"), ExtResource("12_8y5hx")])
-startWeapons = [NodePath("WeaponContainer/Phaser"), NodePath("WeaponContainer/Pistol"), NodePath("WeaponContainer/AssaultRifle"), NodePath("WeaponContainer/Shotgun"), NodePath("WeaponContainer/SniperRifle"), NodePath("WeaponContainer/RocketLauncher")]
+weaponResources = Array[ExtResource("6_1en7l")]([ExtResource("8_40ahu"), ExtResource("9_77wcw"), ExtResource("10_ncscv"), ExtResource("11_rqxvl"), ExtResource("12_8y5hx")])
+startWeapons = [NodePath("WeaponContainer/Pistol"), NodePath("WeaponContainer/AssaultRifle"), NodePath("WeaponContainer/Shotgun"), NodePath("WeaponContainer/SniperRifle"), NodePath("WeaponContainer/RocketLauncher")]
 shoot_action = "shoot"
 reload_action = "reload"
 weapon_wheel_up_action = "weaponWheelUp"
@@ -1453,6 +1271,7 @@ spot_angle_attenuation = 1.31951
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67602e-09, -0.0115472, -0.038343)
 
+<<<<<<< HEAD
 [node name="Phaser" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
 transform = Transform3D(0.3, 0, 0, 0, 0.299156, -0.018744668, 0, 0.022493668, 0.24929596, 0.20047, -0.153444, -0.150842)
 script = ExtResource("7_yryjw")
@@ -1494,6 +1313,8 @@ transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 1.07143e-15, 1.42109e-14, -7.4
 [node name="PistolMuzzleFlashSpawner" type="Marker3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel"]
 transform = Transform3D(1, 1.77636e-15, -4.47642e-13, 0, 1, 7.45058e-09, 2.84217e-14, -2.23518e-08, 1, -2.38419e-07, -0.067999, 0.734684)
 
+=======
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 [node name="Pistol" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
 transform = Transform3D(-0.3, 0, 6.337954e-07, 0, 0.3, 0, -7.6055454e-07, 0, -0.25, 0.20047, -0.153444, -0.150842)
 script = ExtResource("7_yryjw")
@@ -1518,7 +1339,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78936e-08, 0.154984, 0.541
 transform = Transform3D(1, 0, -4.54747e-13, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0.065257, 0.568656)
 
 [node name="AssaultRifle" type="Node3D" parent="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer" node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
+<<<<<<< HEAD
 transform = Transform3D(-0.141413, 0.16853, 5.5773995e-07, 0.16853, 0.141413, -3.768724e-13, -3.5850798e-07, 4.2725395e-07, -0.22, 0.194, -0.65, -0.144)
+=======
+transform = Transform3D(-0.141413, 0.16853, 5.5773995e-07, 0.16853, 0.141413, -3.8387886e-13, -3.5850798e-07, 4.2725395e-07, -0.22, 0.194, -0.65, -0.144)
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 script = ExtResource("7_yryjw")
 model = NodePath(".")
 weaponId = 3
@@ -1923,5 +1748,3 @@ follow_viewport_enabled = true
 
 [node name="Pause_Menu" parent="Menus" instance=ExtResource("24_lgdxi")]
 visible = false
-
-[editable path="CameraHolder/CameraRecoilHolder/Camera/WeaponManager/WeaponContainer/Phaser/PistolModel/Type2_Phaser"]

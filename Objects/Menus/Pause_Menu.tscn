@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjr7gl4qq1oxc"]
+[gd_scene load_steps=13 format=3 uid="uid://cjr7gl4qq1oxc"]
 
-[ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="1_6ra1j"]
+[ext_resource type="Theme" uid="uid://bs6ey2is3yjo" path="res://Themes/UI_Theme_01.tres" id="1_387om"]
 [ext_resource type="Script" uid="uid://c1rgmyoaem4l2" path="res://Objects/Menus/Scripts/Containers/Pause_Menu.gd" id="1_kcc6r"]
+[ext_resource type="Texture2D" uid="uid://bqtdn3h0u1emf" path="res://Kenny_Assets/UI/kenney_ui-pack-rpg-expansion/PNG/panelInset_beige.png" id="2_rgelq"]
 [ext_resource type="FontFile" uid="uid://lypo0qj4o141" path="res://Fonts/Obitron/Orbitron-VariableFont_wght.ttf" id="2_t8dik"]
 [ext_resource type="Script" uid="uid://dsno1lu4gv5f5" path="res://Objects/Menus/Scripts/Containers/Tab_Container.gd" id="3_eahvy"]
 [ext_resource type="Script" uid="uid://cowpp74qotmxn" path="res://Objects/Menus/Scripts/Buttons/Quit_Game.gd" id="3_tqkdt"]
@@ -10,6 +11,22 @@
 [ext_resource type="Script" uid="uid://bb05rmqunxdda" path="res://Objects/Menus/Scripts/CheckBoxes/Fullscreen_CB.gd" id="8_rgelq"]
 [ext_resource type="Script" uid="uid://y1dnngbuxj38" path="res://Objects/Menus/Scripts/Sliders/Graphics_Presets_HS.gd" id="8_v1kb7"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_387om"]
+texture = ExtResource("2_rgelq")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1talt"]
+texture = ExtResource("2_rgelq")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [node name="Pause_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -17,9 +34,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_387om")
 script = ExtResource("1_kcc6r")
 
 [node name="BG" type="TextureRect" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 1
 anchors_preset = 15
@@ -27,9 +46,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6ra1j")
+texture = ExtResource("2_rgelq")
 expand_mode = 1
-stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Buttons" type="VBoxContainer" parent="."]
@@ -48,15 +66,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
 [node name="TabContainer" type="TabContainer" parent="MC"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t8dik")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxTexture_387om")
+theme_override_styles/tabbar_background = SubResource("StyleBoxTexture_1talt")
 tab_alignment = 1
 current_tab = 0
 tab_focus_mode = 0

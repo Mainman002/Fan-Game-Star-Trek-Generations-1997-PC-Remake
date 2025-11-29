@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt4odc6mgjqi5"]
+
+[ext_resource type="Texture2D" uid="uid://dm1udfmwl24p7" path="res://icon.svg" id="1_ah1je"]
+
+[node name="Test_2D_Scene" type="Node2D"]
+
+[node name="BG" type="ColorRect" parent="."]
+offset_left = -414.0
+offset_top = -336.0
+offset_right = 2346.0
+offset_bottom = 1410.0
+color = Color(0.6580141, 0.85176855, 0.88298255, 1)
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(894, 502)
+texture = ExtResource("1_ah1je")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(896, 508)

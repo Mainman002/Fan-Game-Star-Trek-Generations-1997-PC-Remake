@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b56oryxdldvl0"]
+[gd_scene load_steps=4 format=3 uid="uid://b56oryxdldvl0"]
 
 [ext_resource type="Script" uid="uid://ciqquhpog68al" path="res://Scenes/Scripts/Delay_Scene_Change.gd" id="1_v0eyb"]
+[ext_resource type="Theme" uid="uid://bs6ey2is3yjo" path="res://Themes/UI_Theme_01.tres" id="1_xnia6"]
 [ext_resource type="Texture2D" uid="uid://cmufavshudmd3" path="res://Images/Porting/Splashscreen.png" id="2_v0eyb"]
 
 [node name="Blank" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_xnia6")
 metadata/_edit_lock_ = true
 
 [node name="Delay_Scene_Change" type="Node" parent="."]
@@ -28,6 +30,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

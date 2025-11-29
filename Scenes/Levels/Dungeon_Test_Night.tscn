@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 [gd_scene load_steps=26 format=3 uid="uid://dmcr02wb450fq"]
 
 [ext_resource type="LightmapGIData" uid="uid://b871gopoddx6h" path="res://Scenes/Levels/Lightmaps/Dungeon_Test_Night/Dungeon_Test_Night.lmbake" id="1_ivpwk"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://dmcr02wb450fq"]
+
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 [ext_resource type="Script" uid="uid://by1n0phxkydtb" path="res://Scenes/Levels/Scripts/Lightmap_GI.gd" id="2_ktap7"]
 [ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="3_hnjw2"]
 [ext_resource type="Texture2D" uid="uid://dsae3e70akr8s" path="res://Images/HDR/HDR_hazy_nebulae.hdr" id="4_ra4w7"]
 [ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="5_8ekr0"]
 [ext_resource type="Material" uid="uid://bu7tj6ka05jwg" path="res://addons/Arts/Materials/StructureMaterial1.tres" id="6_gv8wt"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bgaob1xuc5yty" path="res://Models/Modular_Dungeon/glb/Floors/Floor_Tile.glb" id="7_tyvd1"]
 [ext_resource type="PackedScene" uid="uid://bojglr0fru8y6" path="res://Models/Modular_Dungeon/glb/Walls/Corner.glb" id="8_2pgkg"]
 [ext_resource type="PackedScene" uid="uid://8g24tcr3td83" path="res://Models/Modular_Dungeon/glb/Walls/Wall.glb" id="9_24uvb"]
@@ -14,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://ckn6nprpk0eo" path="res://Models/Modular_Dungeon/glb/Props/Barrel.glb" id="12_fc01d"]
 [ext_resource type="PackedScene" uid="uid://tdrxnh0dqq88" path="res://Models/Modular_Dungeon/glb/Props/Chest.glb" id="13_ag2ty"]
 [ext_resource type="PackedScene" uid="uid://by8kfp6cccx3t" path="res://Models/Modular_Dungeon/glb/Floors/Floor_Single_Tile.glb" id="14_bulpp"]
+=======
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/Scripts/UI/HUDScript.gd" id="15_2pgkg"]
 [ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/Arts/Fonts/Ticketing.ttf" id="16_24uvb"]
 [ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="17_yr28g"]
@@ -84,7 +92,10 @@ max_texture_size = 8192
 environment_mode = 3
 environment_custom_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
 generate_probes_subdiv = 1
+<<<<<<< HEAD
 light_data = ExtResource("1_ivpwk")
+=======
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 script = ExtResource("2_ktap7")
 metadata/_edit_lock_ = true
 
@@ -191,6 +202,7 @@ shape = SubResource("BoxShape3D_rt4p6")
 visible = false
 mesh = SubResource("PlaneMesh_npj68")
 
+<<<<<<< HEAD
 [node name="Dungeon" type="Node3D" parent="Meshes"]
 metadata/_edit_lock_ = true
 
@@ -343,6 +355,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.018446, 2.394909, -6
 [node name="Floor_Single_Tile4" parent="Meshes/Dungeon/Props" instance=ExtResource("14_bulpp")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.870024, 3.594909, 6.597069)
 
+=======
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.7855173e-08, 0.5, -0.8660254, 2.1855694e-08, 0.8660254, 0.5, 1, 0, -4.371139e-08, -59.4846, 34.73588, 2.5248184)
 current = true

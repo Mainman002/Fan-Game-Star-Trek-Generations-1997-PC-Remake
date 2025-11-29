@@ -1,6 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cubnnengtoana"]
+[gd_scene load_steps=12 format=3 uid="uid://cubnnengtoana"]
 
+[ext_resource type="Theme" uid="uid://bs6ey2is3yjo" path="res://Themes/UI_Theme_01.tres" id="1_7phxv"]
 [ext_resource type="Script" uid="uid://iekto4fe6kpu" path="res://Scenes/Scripts/Scene_Manager.gd" id="1_rnu2x"]
+[ext_resource type="Script" uid="uid://dg48882oun758" path="res://Scenes/Scene_Manager/Scripts/Scene_Entry.gd" id="3_nwa80"]
+[ext_resource type="Resource" uid="uid://dlb4rg2x7dwxp" path="res://Scenes/Scene_Manager/Scene_Resources/Levels/Dungeon_Test_Night.tres" id="4_pt868"]
+[ext_resource type="Resource" uid="uid://i5fudpuduf8v" path="res://Scenes/Scene_Manager/Scene_Resources/Blank.tres" id="5_qjj8k"]
+[ext_resource type="Resource" uid="uid://bywlyf7ee6sj" path="res://Scenes/Scene_Manager/Scene_Resources/Levels/Dungeon_Test_Day.tres" id="6_5m3jr"]
+[ext_resource type="Resource" uid="uid://bqpu07eg204ay" path="res://Scenes/Scene_Manager/Scene_Resources/Testing/Test_2D_Scene.tres" id="7_pt868"]
 
 [sub_resource type="Animation" id="Animation_b1kvw"]
 resource_name = "Fade_In"
@@ -128,7 +134,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7phxv")
 script = ExtResource("1_rnu2x")
+scene_list = Array[ExtResource("3_nwa80")]([ExtResource("5_qjj8k"), ExtResource("6_5m3jr"), ExtResource("4_pt868"), ExtResource("7_pt868")])
+doc_text = "* Refresh Scenes:
+Manually reload \"Scene List\" values.
+
+* Scene Entries Dir :
+Folder containing all SceneEntry resources.
+
+* Scene List:
+Automatically populated list of SceneEntry resources."
 metadata/_edit_lock_ = true
 
 [node name="Scenes" type="Control" parent="."]
@@ -139,6 +155,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7phxv")
 metadata/_edit_lock_ = true
 
 [node name="Overlay" type="CanvasLayer" parent="."]

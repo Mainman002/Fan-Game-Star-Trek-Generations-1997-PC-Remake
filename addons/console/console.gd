@@ -37,14 +37,15 @@ var line_edit:LineEdit = LineEdit.new()
 var console_commands:Dictionary = {}
 var command_parameters:Dictionary = {}
 var console_history:Array = []
-var scene_list:Array = [
-	## Menus
-	"blank",
+var scene_list:Array = []
 
+<<<<<<< HEAD
 	## Levels
 	"day",
 	"night",
 ]
+=======
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 var console_history_index:int = 0
 var was_paused_already:bool = false
 
@@ -160,6 +161,11 @@ func _exit_tree() -> void:
 
 
 func _ready() -> void:
+	await get_tree().process_frame
+	if get_tree().root.has_node("Scene_Manager"):
+		for _scene in get_tree().root.get_node("Scene_Manager")._lookup:
+			scene_list.append( _scene )
+
 	add_command("quit", quit, 0, 0, "Quits the game.")
 	add_command("exit", toggle_console, 0, 0, "Close developer console.")
 	add_command("clear", clear, 0, 0, "Clears the text on the console.")

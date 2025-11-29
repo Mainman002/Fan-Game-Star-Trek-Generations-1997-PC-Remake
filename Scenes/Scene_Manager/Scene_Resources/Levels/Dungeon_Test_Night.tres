@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SceneEntry" load_steps=2 format=3 uid="uid://dlb4rg2x7dwxp"]
+
+[ext_resource type="Script" uid="uid://dg48882oun758" path="res://Scenes/Scene_Manager/Scripts/Scene_Entry.gd" id="1_mxtn2"]
+
+[resource]
+script = ExtResource("1_mxtn2")
+name = "night"
+path = "uid://dmcr02wb450fq"
+metadata/_custom_type_script = "uid://dg48882oun758"

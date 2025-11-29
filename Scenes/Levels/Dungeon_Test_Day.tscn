@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=3 uid="uid://d0g76a8vaieaq"]
+=======
+[gd_scene load_steps=28 format=3 uid="uid://d0g76a8vaieaq"]
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 
 [ext_resource type="LightmapGIData" uid="uid://cgtg1odcuv1k7" path="res://Scenes/Levels/Lightmaps/Dungeon_Test_Day/Dungeon_Test_Day.lmbake" id="1_7aw1s"]
 [ext_resource type="Script" uid="uid://by1n0phxkydtb" path="res://Scenes/Levels/Scripts/Lightmap_GI.gd" id="2_dtu1b"]
 [ext_resource type="Script" uid="uid://dcsfo40mu0bcj" path="res://Scenes/Levels/Scripts/Reflection_Probe.gd" id="3_7aw1s"]
 [ext_resource type="Script" uid="uid://yfhvqy25hdjh" path="res://Scenes/Levels/Scripts/World_Environment.gd" id="4_po4gc"]
 [ext_resource type="Material" uid="uid://bu7tj6ka05jwg" path="res://addons/Arts/Materials/StructureMaterial1.tres" id="5_2jgcc"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bgaob1xuc5yty" path="res://Models/Modular_Dungeon/glb/Floors/Floor_Tile.glb" id="6_po4gc"]
 [ext_resource type="PackedScene" uid="uid://bojglr0fru8y6" path="res://Models/Modular_Dungeon/glb/Walls/Corner.glb" id="7_2jgcc"]
 [ext_resource type="PackedScene" uid="uid://8g24tcr3td83" path="res://Models/Modular_Dungeon/glb/Walls/Wall.glb" id="8_x4wiy"]
@@ -16,6 +21,22 @@
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/Scripts/UI/HUDScript.gd" id="14_l7w2o"]
 [ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/Arts/Fonts/Ticketing.ttf" id="15_i8vdr"]
 [ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="16_8bsum"]
+=======
+[ext_resource type="PackedScene" uid="uid://blycfq471mqf0" path="res://Kenny_Assets/3D/kenney_nature-kit/ground_grass.glb" id="6_7aw1s"]
+[ext_resource type="PackedScene" uid="uid://cyo5xnyh15jfd" path="res://Kenny_Assets/3D/kenney_nature-kit/cliff_waterfallTop_rock.glb" id="7_u8kkg"]
+[ext_resource type="PackedScene" uid="uid://psht2arjqtia" path="res://Kenny_Assets/3D/kenney_nature-kit/ground_riverRocks.glb" id="8_iqvlo"]
+[ext_resource type="PackedScene" uid="uid://c4xau41cyborb" path="res://Kenny_Assets/3D/kenney_nature-kit/grass.glb" id="9_vx3ps"]
+[ext_resource type="PackedScene" uid="uid://yg37cqtddh53" path="res://Kenny_Assets/3D/kenney_nature-kit/flower_purpleC.glb" id="10_ssgv3"]
+[ext_resource type="PackedScene" uid="uid://lgihjcmbw1dk" path="res://Kenny_Assets/3D/kenney_nature-kit/flower_redB.glb" id="11_6d70v"]
+[ext_resource type="PackedScene" uid="uid://t61wirv4koy2" path="res://Kenny_Assets/3D/kenney_nature-kit/flower_yellowC.glb" id="12_csuse"]
+[ext_resource type="PackedScene" uid="uid://ihvnyj1uvqkk" path="res://Kenny_Assets/3D/kenney_nature-kit/fence_planks.glb" id="13_1u6rp"]
+[ext_resource type="PackedScene" uid="uid://kis5obmpccd8" path="res://Kenny_Assets/3D/kenney_nature-kit/fence_corner.glb" id="14_bykdt"]
+[ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/Scripts/UI/HUDScript.gd" id="14_l7w2o"]
+[ext_resource type="PackedScene" uid="uid://8u6g0kgw7mdu" path="res://Kenny_Assets/3D/kenney_nature-kit/fence_gate.glb" id="15_eod8e"]
+[ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/Arts/Fonts/Ticketing.ttf" id="15_i8vdr"]
+[ext_resource type="Texture2D" uid="uid://jwucel52ti1u" path="res://addons/Weapons/Images/Crosshair.png" id="16_8bsum"]
+[ext_resource type="PackedScene" uid="uid://d33pwemu6jgw6" path="res://Kenny_Assets/3D/kenney_nature-kit/cliff_top_rock.glb" id="16_65ncp"]
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 [ext_resource type="PackedScene" uid="uid://cjr7gl4qq1oxc" path="res://Objects/Menus/Pause_Menu.tscn" id="17_u8kkg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hf6q1"]
@@ -75,7 +96,11 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+<<<<<<< HEAD
 quality = 3
+=======
+quality = 0
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 supersampling = true
 texel_scale = 0.5
 max_texture_size = 8192
@@ -135,6 +160,7 @@ shape = SubResource("BoxShape3D_7x0gj")
 visible = false
 mesh = SubResource("PlaneMesh_yp5m1")
 
+<<<<<<< HEAD
 [node name="Dungeon" type="Node3D" parent="Meshes"]
 metadata/_edit_lock_ = true
 
@@ -289,6 +315,462 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.870024, 3.594909,
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.7855173e-08, 0.5, -0.8660254, 2.1855694e-08, 0.8660254, 0.5, 1, 0, -4.371139e-08, -59.4846, 34.73588, 2.5248184)
+=======
+[node name="Ground_Tiles" type="Node3D" parent="Meshes"]
+metadata/_edit_lock_ = true
+
+[node name="ground_grass2" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+
+[node name="ground_grass3" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="ground_grass4" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="ground_grass5" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="ground_grass6" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="ground_grass7" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="ground_grass8" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="ground_grass9" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="ground_grass10" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="ground_grass11" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="ground_grass12" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="ground_grass13" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="ground_grass14" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[node name="ground_grass15" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
+
+[node name="ground_grass17" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="ground_grass18" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="ground_grass19" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="ground_grass20" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="ground_grass21" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+
+[node name="ground_grass22" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="ground_grass23" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="ground_grass24" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+
+[node name="ground_grass25" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="ground_grass26" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="ground_grass27" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+
+[node name="ground_grass28" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+
+[node name="ground_grass29" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="ground_grass30" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="ground_grass31" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="ground_grass32" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="ground_grass33" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="ground_grass34" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="ground_grass35" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="ground_grass36" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
+
+[node name="ground_grass37" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="ground_grass38" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="ground_grass39" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
+[node name="ground_grass40" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="ground_grass41" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 3)
+
+[node name="ground_grass42" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 4)
+
+[node name="ground_grass43" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 2)
+
+[node name="ground_grass44" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="ground_grass45" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="ground_grass46" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="ground_grass47" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="ground_grass48" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+
+[node name="ground_grass49" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
+
+[node name="ground_grass50" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+
+[node name="ground_grass51" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="ground_grass52" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="ground_grass53" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+
+[node name="ground_grass54" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="ground_grass55" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="ground_grass56" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="ground_grass57" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="ground_grass58" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="ground_grass59" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="ground_grass60" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="ground_grass61" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="ground_grass62" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+
+[node name="ground_grass63" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="ground_grass64" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+
+[node name="ground_grass65" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="ground_grass66" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="ground_grass67" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+
+[node name="ground_grass68" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -3)
+
+[node name="ground_grass69" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -2)
+
+[node name="ground_grass70" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -4)
+
+[node name="ground_grass16" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+
+[node name="ground_grass83" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1)
+
+[node name="ground_grass84" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 3)
+
+[node name="ground_grass85" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
+
+[node name="ground_grass86" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 2)
+
+[node name="ground_grass87" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -3)
+
+[node name="ground_grass88" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -2)
+
+[node name="ground_grass89" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
+
+[node name="ground_grass90" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+
+[node name="ground_grass91" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1)
+
+[node name="ground_grass92" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 3)
+
+[node name="ground_grass93" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 4)
+
+[node name="ground_grass94" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 2)
+
+[node name="ground_grass95" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -3)
+
+[node name="ground_grass96" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -2)
+
+[node name="ground_grass97" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -4)
+
+[node name="ground_grass98" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0)
+
+[node name="ground_grass99" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 1)
+
+[node name="ground_grass100" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 3)
+
+[node name="ground_grass101" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 4)
+
+[node name="ground_grass102" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 2)
+
+[node name="ground_grass103" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -3)
+
+[node name="ground_grass104" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -2)
+
+[node name="ground_grass105" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -4)
+
+[node name="ground_grass71" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="ground_grass72" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="ground_grass73" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="ground_grass74" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="ground_grass75" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+
+[node name="ground_grass76" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
+
+[node name="ground_grass77" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="ground_grass78" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="ground_grass79" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="ground_grass80" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+
+[node name="ground_grass81" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="ground_grass82" parent="Meshes/Ground_Tiles" instance=ExtResource("6_7aw1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="cliff_waterfallTop_rock2" parent="Meshes" instance=ExtResource("7_u8kkg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, -1)
+
+[node name="ground_riverRocks2" parent="Meshes" instance=ExtResource("8_iqvlo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 1, -1)
+
+[node name="ground_riverRocks3" parent="Meshes" instance=ExtResource("8_iqvlo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 1, -1)
+
+[node name="ground_riverRocks4" parent="Meshes" instance=ExtResource("8_iqvlo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 1, -1)
+
+[node name="ground_riverRocks5" parent="Meshes" instance=ExtResource("8_iqvlo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 1, -1)
+
+[node name="grass2" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="grass3" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="grass4" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="grass8" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 4)
+
+[node name="grass9" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[node name="grass10" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1)
+
+[node name="grass11" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -2)
+
+[node name="grass12" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
+
+[node name="grass5" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="grass6" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="grass7" parent="Meshes" instance=ExtResource("9_vx3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+
+[node name="flower_purpleC2" parent="Meshes" instance=ExtResource("10_ssgv3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -3)
+
+[node name="flower_redB2" parent="Meshes" instance=ExtResource("11_6d70v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="flower_yellowC2" parent="Meshes" instance=ExtResource("12_csuse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="fence_planks2" parent="Meshes" instance=ExtResource("13_1u6rp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="fence_planks6" parent="Meshes" instance=ExtResource("13_1u6rp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, -1)
+
+[node name="fence_planks3" parent="Meshes" instance=ExtResource("13_1u6rp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="fence_planks4" parent="Meshes" instance=ExtResource("13_1u6rp")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1, 0, 0)
+
+[node name="fence_planks5" parent="Meshes" instance=ExtResource("13_1u6rp")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="fence_corner2" parent="Meshes" instance=ExtResource("14_bykdt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -2)
+
+[node name="fence_corner4" parent="Meshes" instance=ExtResource("14_bykdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="fence_corner5" parent="Meshes" instance=ExtResource("14_bykdt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 0)
+
+[node name="fence_corner3" parent="Meshes" instance=ExtResource("14_bykdt")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, 0)
+
+[node name="fence_gate2" parent="Meshes" instance=ExtResource("15_eod8e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -1)
+
+[node name="cliff_top_rock2" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, -2)
+
+[node name="cliff_top_rock8" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, -3)
+
+[node name="cliff_top_rock9" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, -4)
+
+[node name="cliff_top_rock3" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 0)
+
+[node name="cliff_top_rock4" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 1)
+
+[node name="cliff_top_rock5" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 2)
+
+[node name="cliff_top_rock6" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 3)
+
+[node name="cliff_top_rock7" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 4)
+
+[node name="cliff_top_rock10" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, -2)
+
+[node name="cliff_top_rock18" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, -1)
+
+[node name="cliff_top_rock11" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, -3)
+
+[node name="cliff_top_rock12" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, -4)
+
+[node name="cliff_top_rock13" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, 0)
+
+[node name="cliff_top_rock14" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, 1)
+
+[node name="cliff_top_rock15" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, 2)
+
+[node name="cliff_top_rock16" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, 3)
+
+[node name="cliff_top_rock17" parent="Meshes" instance=ExtResource("16_65ncp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, -1, 4)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.222196e-08, 0.25881907, -0.9659258, 1.131334e-08, 0.9659259, 0.25881907, 1, 8.881784e-16, -4.371139e-08, -8.4846, 1.7358818, 0.5248184)
+>>>>>>> c29fd9b (1. Remove: amargosa station models)
 current = true
 fov = 30.0
 
